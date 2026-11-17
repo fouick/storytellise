@@ -1,0 +1,1390 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Excerpt - The Redirection | ScarCity</title>
+  <meta name="description" content="Read an excerpt from ScarCity: The Redirection. Exactly five years earlier, on 18 April, the birthday that changed everything.">
+  <meta name="theme-color" content="#0b0c10">
+
+  <!-- Open Graph / social media -->
+  <meta property="og:type" content="book">
+  <meta property="og:title" content="ScarCity - E.F. Wick">
+  <meta property="og:description" content="Happiness, Privacy, Health. Pick two. Volume 1 of the Generation Silix saga.">
+  <meta property="og:image" content="https://storytellise.com/cover.jpg">
+  <meta property="og:url" content="https://storytellise.com/index.html">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ScarCity - E.F. Wick">
+  <meta name="twitter:description" content="Happiness, Privacy, Health. Pick two. Volume 1 of the Generation Silix saga.">
+  <meta name="twitter:image" content="https://storytellise.com/cover.jpg">
+
+  <link rel="canonical" href="https://storytellise.com/index.html">
+  <link rel="alternate" hreflang="en" href="https://storytellise.com/index.html">
+  <link rel="alternate" hreflang="fr" href="https://storytellise.com/scarcity-fr.html">
+  <link rel="alternate" hreflang="x-default" href="https://storytellise.com/index.html">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230b0c10'/%3E%3Ctext x='32' y='45' font-family='Arial' font-size='36' font-weight='bold' fill='%23bdb292' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+
+  <!-- Structured data: Book -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Book",
+    "name": "ScarCity",
+    "author": { "@type": "Person", "name": "E.F. Wick" },
+    "inLanguage": "en",
+    "genre": "Dystopian, Science fiction",
+    "bookEdition": "Generation Silix, Volume 1",
+    "url": "https://storytellise.com/index.html",
+    "image": "https://storytellise.com/cover.jpg",
+    "publisher": { "@type": "Organization", "name": "storytellise" },
+    "workExample": [
+      {
+        "@type": "Book",
+        "bookFormat": "https://schema.org/EBook",
+        "potentialAction": {
+          "@type": "ReadAction",
+          "target": "https://www.amazon.com/ScarCity-Generation-Silix-Book-1-ebook/dp/B0HPP37KHN/"
+        }
+      }
+    ]
+  }
+  </script>
+  <style>
+    /* Réinitialisation et styles globaux */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #0b0c10;
+      color: #c5cad0;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Arrière-plan */
+    .bg-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #0b0c10;
+      background-size: cover;
+      background-position: center;
+      filter: blur(50px) brightness(0.15);
+      z-index: -2;
+      transform: scale(1.1);
+    }
+
+    /* Barre de navigation */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 8%;
+      background: rgba(11, 12, 16, 0.8);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: -1px;
+      color: #bdb292;
+      text-decoration: none;
+    }
+
+    /* Animated banner */
+    .video-banner {
+      position: relative;
+      height: 64vh;
+      min-height: 430px;
+      overflow: hidden;
+      background: #0b0c10;
+    }
+
+    .video-banner video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 32%;
+    }
+
+    .banner-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background:
+        linear-gradient(to bottom, rgba(11, 12, 16, 0.35) 0%, transparent 22%, transparent 72%, rgba(11, 12, 16, 0.45) 100%),
+        radial-gradient(ellipse 75% 65% at 50% 55%, rgba(11, 12, 16, 0.62) 0%, rgba(11, 12, 16, 0.34) 55%, rgba(11, 12, 16, 0.08) 100%);
+      z-index: 1;
+      padding: 0 25px;
+    }
+
+    .banner-kicker {
+      font-size: 1.55rem;
+      color: #e8edf3;
+      font-style: italic;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9), 0 4px 24px rgba(0, 0, 0, 0.6);
+    }
+
+    .banner-kicker-sub {
+      font-size: 1.5rem;
+      color: #d9cfad;
+      font-style: italic;
+      font-weight: 600;
+      margin-top: 2px;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9), 0 4px 24px rgba(0, 0, 0, 0.6);
+    }
+
+    .banner-title {
+      font-size: 6.5rem;
+      font-weight: 900;
+      color: #f1f5f9;
+      letter-spacing: -3px;
+      line-height: 1.05;
+      margin-top: 18px;
+      text-shadow: 0 3px 10px rgba(0, 0, 0, 0.9), 0 8px 36px rgba(0, 0, 0, 0.65);
+    }
+
+    .banner-author {
+      margin-top: 18px;
+      color: #cbd5e1;
+      font-size: 1.05rem;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9), 0 4px 24px rgba(0, 0, 0, 0.6);
+    }
+
+    .banner-fade {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 130px;
+      background: linear-gradient(to bottom, transparent, #0b0c10);
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .video-banner video {
+        display: none;
+      }
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #94a3b8;
+      text-decoration: none;
+      margin-left: 15px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #bdb292;
+    }
+
+    .nav-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-links a.btn-nav {
+      background: #1f5e71;
+      color: #bdb292;
+      padding: 10px 22px;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .nav-links a.btn-nav:hover {
+      background: #1f5e71;
+      transform: translateY(-1px);
+    }
+
+    /* Section Héros Principale */
+    .hero-container {
+      max-width: 1200px;
+      margin: 50px auto 80px auto;
+      padding: 0 40px;
+      display: flex;
+      gap: 60px;
+      align-items: flex-start;
+    }
+
+    .hero-left {
+      flex: 1;
+      text-align: center;
+    }
+
+    .hero-right {
+      flex: 1.2;
+      text-align: justify;
+    }
+
+    /* Présentation de la couverture */
+    .cover-box {
+      display: inline-block;
+      position: relative;
+      max-width: 400px;
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
+      transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    .cover-box:hover {
+      transform: translateY(-10px) rotate(-1.5deg) scale(1.02);
+    }
+
+    .cover-img {
+      width: 100%;
+      border-radius: 12px;
+      display: block;
+    }
+
+    /* Mise en évidence du Slogan */
+    .slogan-box {
+      background: rgba(77, 169, 211, 0.08);
+      border-left: 4px solid #1f5e71;
+      padding: 15px 15px;
+      margin-bottom: 20px;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .slogan-txt {
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: rgb(125, 158, 185);
+      letter-spacing: 0.1px;
+    }
+
+    /* Titre et Métadonnées */
+    h1.main-title {
+      font-size: 4rem;
+      font-weight: 900;
+      color: #bdb292;
+      line-height: 1.1;
+      margin-bottom: 8px;
+      letter-spacing: -1px;
+    }
+
+    .author-name {
+      font-size: 1.2rem;
+      color: #94a3b8;
+      margin-bottom: 15px;
+    }
+
+    .author-name strong {
+      color: #bdb292;
+    }
+
+    .accent-line {
+      width: 80px;
+      height: 4px;
+      background: #1f5e71;
+      margin-bottom: 20px;
+      border-radius: 2px;
+    }
+
+    /* Contenu du texte */
+    .section-label {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #64748b;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .synopsis-text {
+      font-size: 1.15rem;
+      color: #bdb292;
+      margin-bottom: 20px;
+      text-align: justify;
+      line-height: 1.5;
+    }
+
+    /* Ligne d'accent centrée sous la couverture */
+    .hero-left .accent-line {
+      margin: 25px auto 20px auto;
+    }
+
+    /* Boutons CTA */
+    .cta-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    /* Boutons sur une ligne, dans la largeur de la couverture */
+    .hero-left .cta-wrapper {
+      max-width: 400px;
+      flex-wrap: nowrap;
+      gap: 10px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-left .btn-action {
+      flex: 1 1 auto;
+      font-size: 0.9rem;
+      padding: 9px 10px;
+      white-space: nowrap;
+    }
+
+    .btn-action {
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 1.00rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+      text-align: center;
+      box-sizing: border-box;
+    }
+
+    .btn-amazon {
+      color: #ff9900;
+      background: #0b0c10;
+      box-shadow: 0 4px 20px rgba(255, 153, 0, 0.25);
+    }
+
+    .btn-amazon:hover {
+      background: #e68a00;
+      color: #0b0c10;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(255, 153, 0, 0.4);
+    }
+
+    .btn-kobo {
+      background: #0b0c10;
+      color: #bd1a1ad2;
+      box-shadow: 0 4px 20px rgba(255, 8, 8, 0.25);
+    }
+
+    .btn-kobo:hover {
+      background: #ff00009c;
+      color: #0b0c10;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(255, 13, 0, 0.4);
+    }
+
+    .btn-google {
+      background: #0b0c10;
+      color: #62a6ffd2;
+      box-shadow: 0 4px 20px rgba(8, 144, 255, 0.25);
+    }
+
+    .btn-google:hover {
+      background: rgba(50, 150, 243, 0.776);
+      color: #0b0c10;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 140, 255, 0.4);
+    }
+
+    .btn-discover {
+      background: rgba(255, 255, 255, 0.06);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .btn-discover:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    /* Section Caractéristiques (Features) */
+    .features-section {
+      max-width: 1200px;
+      margin: 80px auto;
+      padding: 0 40px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .feature-item {
+      background: rgba(17, 24, 39, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      padding: 35px;
+      border-radius: 12px;
+      backdrop-filter: blur(15px);
+      transition: border-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .feature-item:hover {
+      border-color: rgba(67, 193, 215, 0.2);
+      transform: translateY(-4px);
+    }
+
+    .feature-badge {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      display: inline-block;
+    }
+
+    .feature-item h3 {
+      font-size: 1.3rem;
+      color: #ffffff;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .feature-item p {
+      font-size: 0.98rem;
+      color: #94a3b8;
+      line-height: 1.6;
+    }
+
+    /* Pied de page */
+    footer {
+      text-align: center;
+      padding: 20px 20px;
+      margin-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      background: rgba(7, 8, 10, 0.85);
+      backdrop-filter: blur(10px);
+    }
+
+    footer p {
+      font-size: 0.9rem;
+      color: #475569;
+      letter-spacing: 0.5px;
+    }
+
+    a.link-ghost {
+      color: #475569;
+    }
+
+    /* ===== Content sections ===== */
+    .content-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px 40px 0 40px;
+    }
+
+    .content-section h2 {
+      font-size: 2rem;
+      color: #e2e8f0;
+      margin-bottom: 35px;
+      letter-spacing: -0.5px;
+    }
+
+    /* Striking quote */
+    .quote-band {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 90px 40px 0 40px;
+      text-align: center;
+    }
+
+    blockquote.big-quote {
+      font-size: 1.7rem;
+      line-height: 1.55;
+      color: #e2e8f0;
+      font-style: italic;
+      position: relative;
+    }
+
+    blockquote.big-quote::before {
+      content: '\201C';
+      display: block;
+      font-size: 5rem;
+      line-height: 1;
+      color: #1f5e71;
+      font-style: normal;
+      margin-bottom: 10px;
+    }
+
+    blockquote.big-quote footer {
+      margin-top: 20px;
+      font-size: 0.9rem;
+      font-style: normal;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #64748b;
+    }
+
+    /* Book specs */
+    .specs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .spec-tile {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 14px;
+      padding: 25px 20px;
+      text-align: center;
+      transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.3s;
+    }
+
+    .spec-tile:hover {
+      transform: translateY(-4px);
+      border-color: rgba(31, 94, 113, 0.6);
+    }
+
+    .spec-tile .spec-value {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #bdb292;
+      margin-bottom: 6px;
+    }
+
+    .spec-tile .spec-key {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #64748b;
+    }
+
+    /* "For readers of" cards */
+    .vibes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .vibe-card {
+      background: linear-gradient(160deg, rgba(31, 94, 113, 0.12), rgba(255, 255, 255, 0.02));
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 14px;
+      padding: 30px;
+      transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    .vibe-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .vibe-card h3 {
+      font-size: 1.3rem;
+      color: #4da9d3;
+      margin-bottom: 10px;
+    }
+
+    .vibe-card p {
+      font-size: 0.95rem;
+      color: #94a3b8;
+      line-height: 1.6;
+    }
+
+    .section-cta {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    /* Author bio */
+    .author-bio {
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 16px;
+      padding: 40px;
+    }
+
+    .author-monogram {
+      flex-shrink: 0;
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #1f5e71, #0b0c10);
+      border: 2px solid rgba(189, 178, 146, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: #bdb292;
+      letter-spacing: 2px;
+    }
+
+    .author-bio-text p {
+      color: #94a3b8;
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+
+    .author-bio-text .bio-sign {
+      color: #bdb292;
+      font-style: italic;
+    }
+
+    /* The saga */
+    .series-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+    .series-card {
+      border-radius: 16px;
+      padding: 35px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.02);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .series-card.current {
+      background: linear-gradient(160deg, rgba(31, 94, 113, 0.18), rgba(255, 255, 255, 0.02));
+      border-color: rgba(31, 94, 113, 0.5);
+    }
+
+    .series-card .series-num {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #64748b;
+      margin-bottom: 8px;
+    }
+
+    .series-card h3 {
+      font-size: 1.5rem;
+      color: #e2e8f0;
+      margin-bottom: 10px;
+    }
+
+    .series-card p {
+      color: #94a3b8;
+      margin-bottom: 20px;
+    }
+
+    .series-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 5px 12px;
+      border-radius: 20px;
+      margin-bottom: 15px;
+    }
+
+    .series-badge.out {
+      background: rgba(189, 178, 146, 0.15);
+      color: #bdb292;
+    }
+
+    .series-badge.soon {
+      background: rgba(77, 169, 211, 0.12);
+      color: #4da9d3;
+    }
+
+    /* Newsletter */
+    .newsletter-band {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 90px 40px 90px 40px;
+      text-align: center;
+    }
+
+    .newsletter-band h2 {
+      font-size: 2rem;
+      color: #e2e8f0;
+      margin-bottom: 12px;
+    }
+
+    .newsletter-band p {
+      color: #94a3b8;
+      margin-bottom: 30px;
+    }
+
+    .btn-newsletter {
+      display: inline-block;
+      padding: 13px 34px;
+      border-radius: 10px;
+      background: #1f5e71;
+      color: #e2e8f0;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+      box-shadow: 0 4px 25px rgba(31, 94, 113, 0.35);
+    }
+
+    .btn-newsletter:hover {
+      background: #2a7d95;
+      transform: translateY(-2px);
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
+
+    /* Media Queries pour le Responsive */
+    @media (max-width: 968px) {
+      /* Header + banner - mobile */
+      header {
+        padding: 20px 5%;
+      }
+
+      .nav-logo {
+        display: none;
+      }
+
+      .video-banner {
+        height: 48vh;
+        min-height: 340px;
+      }
+
+      .banner-title {
+        font-size: 3.4rem;
+        letter-spacing: -1px;
+      }
+
+      .banner-kicker {
+        font-size: 1.15rem;
+      }
+
+      .banner-kicker-sub {
+        font-size: 1.1rem;
+      }
+
+      .banner-author {
+        font-size: 0.95rem;
+      }
+
+      .hero-container {
+        flex-direction: column;
+        text-align: center;
+        align-items: stretch;
+        gap: 45px;
+        margin-top: 120px;
+        padding: 0 25px;
+      }
+
+      .hero-right {
+        width: 100%;
+      }
+
+      h1.main-title {
+        font-size: 3rem;
+      }
+
+      .slogan-box {
+        border-left: none;
+        border-top: 4px solid #bdb292;
+        border-radius: 8px;
+        padding: 15px;
+      }
+
+      .accent-line {
+        margin: 0 auto 30px auto;
+      }
+
+      .synopsis-text {
+        text-align: center;
+      }
+
+      .cta-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .btn-action {
+        width: 100%;
+        flex: 0 0 auto;
+      }
+
+      .features-section {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 25px;
+        margin-top: 40px;
+      }
+
+      /* Content sections - mobile */
+      .content-section {
+        padding: 55px 25px 0 25px;
+      }
+
+      .content-section h2 {
+        font-size: 1.6rem;
+      }
+
+      .quote-band {
+        padding: 60px 25px 0 25px;
+      }
+
+      blockquote.big-quote {
+        font-size: 1.25rem;
+      }
+
+      .specs-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .vibes-grid,
+      .series-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .author-bio {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 30px 25px;
+      }
+
+      .newsletter-band {
+        padding: 60px 25px;
+      }
+
+      .newsletter-band h2 {
+        font-size: 1.6rem;
+      }
+    }
+  
+    /* Page lecture */
+    .chapter-title {
+      text-align: center;
+      font-size: 2.5rem;
+      color: #e2e8f0;
+      letter-spacing: -0.5px;
+      margin-bottom: 6px;
+    }
+    .chapter-date {
+      text-align: center;
+      color: #64748b;
+      font-style: italic;
+      font-size: 1.05rem;
+    }
+    .reading-text {
+      max-width: 680px;
+      margin: 45px auto 0 auto;
+      font-size: 1.13rem;
+      line-height: 1.55;
+      color: #c9cfd6;
+    }
+    .reading-text p {
+      margin-bottom: 0.45em;
+      text-align: justify;
+    }
+    .reading-text p.ind {
+      text-indent: 1.5em;
+    }
+    
+    .messpam {
+      border: 2px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin: 0.7em auto;
+      background: rgba(255, 255, 255, 0.04);
+      text-indent: 0 !important;
+      font-size: 0.95em;
+      line-height: 1.65;
+    }
+    .drop-cap::first-letter {
+      font-size: 3.1em;
+      float: left;
+      line-height: 0.82;
+      padding: 0.05em 0.09em 0 0;
+      color: #bdb292;
+      font-weight: 700;
+    }
+    .excerpt-end {
+      text-align: center;
+      margin-top: 60px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
+    }
+    .excerpt-end-note {
+      color: #bdb292;
+      font-weight: 700;
+      font-style: italic;
+      font-size: 1.05rem;
+      margin-bottom: 22px;
+    }
+    @media (max-width: 968px) {
+      .reading-text { font-size: 1.05rem; line-height: 1.8; }
+      .reading-text p { text-align: left; }
+      .chapter-title { font-size: 1.9rem; }
+    }
+  
+    /* Bandeau cookies (RGPD) */
+    #cookie-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      z-index: 200;
+      background: rgba(15, 17, 23, 0.98);
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 13px 30px;
+      box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.55);
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      box-sizing: border-box;
+      backdrop-filter: blur(10px);
+    }
+
+    #cookie-banner p { font-size: 0.85rem; color: #94a3b8; line-height: 1.5; margin: 0; }
+    #cookie-banner a { color: #4da9d3; }
+
+    .cookie-actions { display: flex; gap: 10px; flex-shrink: 0; }
+
+    .cookie-actions button {
+      padding: 9px 18px;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .cookie-actions button:first-child { background: #1f5e71; color: #e2e8f0; }
+    .cookie-actions button:first-child:hover { background: #2a7d95; }
+    .cookie-actions .cookie-refuse {
+      background: transparent;
+      color: #94a3b8;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    .cookie-actions .cookie-refuse:hover { color: #e2e8f0; }
+
+    @media (max-width: 968px) {
+      #cookie-banner { flex-direction: column; align-items: stretch; text-align: center; padding: 12px 18px; }
+      .cookie-actions { justify-content: center; }
+    }
+  
+    /* Popup newsletter */
+    .nl-popup {
+      position: fixed;
+      bottom: 18px;
+      right: 18px;
+      z-index: 190;
+      width: 340px;
+      max-width: calc(100vw - 36px);
+      background: rgba(15, 17, 23, 0.98);
+      border: 1px solid rgba(31, 94, 113, 0.45);
+      border-radius: 14px;
+      padding: 24px 24px 20px 24px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65);
+      transform: translateX(120%);
+      transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+      display: none;
+    }
+
+    .nl-popup.open { transform: translateX(0); }
+
+    .nl-popup h3 {
+      font-size: 1.25rem;
+      color: #e2e8f0;
+      margin-bottom: 8px;
+      letter-spacing: -0.3px;
+    }
+
+    .nl-popup p { font-size: 0.88rem; color: #94a3b8; line-height: 1.55; margin-bottom: 14px; }
+
+    .nl-popup form { display: flex; gap: 8px; }
+
+    .nl-popup input[type="email"] {
+      flex: 1;
+      min-width: 0;
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.05);
+      color: #e2e8f0;
+      font-size: 0.9rem;
+      font-family: inherit;
+    }
+
+    .nl-popup input[type="email"]:focus {
+      outline: none;
+      border-color: #1f5e71;
+    }
+
+    .nl-popup button {
+      padding: 10px 16px;
+      border: none;
+      border-radius: 8px;
+      background: #1f5e71;
+      color: #e2e8f0;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      font-family: inherit;
+      white-space: nowrap;
+    }
+
+    .nl-popup button:hover { background: #2a7d95; }
+
+    .nl-popup .nl-close {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      background: none;
+      border: none;
+      color: #64748b;
+      font-size: 1.1rem;
+      cursor: pointer;
+      padding: 4px;
+      line-height: 1;
+    }
+
+    .nl-popup .nl-close:hover { color: #e2e8f0; }
+
+    .nl-popup .nl-note {
+      font-size: 0.72rem !important;
+      color: #64748b !important;
+      margin: 10px 0 0 0 !important;
+    }
+
+    @media (max-width: 968px) {
+      .nl-popup { bottom: 0; right: 0; left: 0; width: 100%; max-width: none; border-radius: 14px 14px 0 0; }
+    }
+  </style>
+  <!-- Cookies / GDPR: Google Analytics loaded only after consent -->
+  <script>
+    (function () {
+      function loadGA() {
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-TWLXRRDC8D';
+        document.head.appendChild(s);
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-TWLXRRDC8D');
+      }
+      function setConsent(choice) {
+        try { localStorage.setItem('cookie-consent', choice); } catch (e) {}
+        var b = document.getElementById('cookie-banner');
+        if (b) b.remove();
+        if (choice === 'granted') loadGA();
+      }
+      window.__setConsent = setConsent;
+      document.addEventListener('DOMContentLoaded', function () {
+        var c = null;
+        try { c = localStorage.getItem('cookie-consent'); } catch (e) {}
+        if (c === 'granted') loadGA();
+        else if (!c) {
+          var b = document.getElementById('cookie-banner');
+          if (b) b.style.display = 'flex';
+        }
+      });
+    })();
+  </script>
+
+</head>
+
+<body>
+
+  <!-- Fond flouté d'ambiance -->
+  <div class="bg-overlay"></div>
+
+  <!-- En-tête / Navigation -->
+  <header>
+    <ul class="nav-links nav-left">
+      <li><a href="./index.html">ScarCity</a></li>
+      <li><a href="#" class="active">Excerpt</a></li>
+      <li><a href="./author.html">Bio</a></li>
+      <li><a href="./extrait.html">Français</a></li>
+    </ul>
+    <a href="#" class="nav-logo">E.F. Wick</a>
+    <ul class="nav-links nav-right">
+      <li><a href="https://www.instagram.com/storytellise/" target="_blank" rel="noopener" aria-label="Instagram" class="nav-icon">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5"></rect><circle cx="12" cy="12" r="4.2"></circle><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"></circle></svg>
+      </a></li>
+      <li><a href="mailto:storytellise@proton.me">Contact</a></li>
+    </ul>
+  </header>
+
+  <!-- Animated banner: the waterfall -->
+  <section class="video-banner">
+    <video autoplay muted loop playsinline poster="cascade-flow-20-banner.jpg">
+      <source src="cascade-flow-20-banner.mp4" type="video/mp4">
+    </video>
+    <div class="banner-overlay">
+      <h1 class="banner-title">ScarCity</h1>
+      <div class="banner-kicker">Happiness. Privacy. Health.</div>
+      <div class="banner-kicker-sub">Pick two.</div>
+    </div>
+    <div class="banner-fade"></div>
+  </section>
+
+  
+  <main>
+    <section class="content-section" id="extrait" style="padding-top: 140px;">
+      <div class="section-label">Excerpt</div>
+      <h1 class="chapter-title">The Redirection</h1>
+      <div class="chapter-date">Exactly five years earlier – 18 April</div>
+      <div class="reading-text">
+        <p class="drop-cap">The seven Terminals were standing in the front row; their family units settled behind them on wobbly, vaguely aligned folding chairs. Tired of his repetitive duties and in a generous mood, the Government Delegate had exceptionally granted entry to anyone who showed up at the ceremony, thus defying the arbitrary safety rule of the Convention, which limited access to a single legal guardian per Terminal.</p>
+        <p>As far as he could remember, it was a full hall, a first since he had taken up his <i>jobby</i>, and he was congratulating himself for it.</p>
+        <p class="ind">In a wing of the Opéra, that vast windowless room dedicated to Redirections was closer to a cold store than to the once-opulent theatre of yesteryear. Here, no long rows of velvet-upholstered seats or crystal chandeliers. Not a hint either of the crimson carpet one imagined when crossing the cream-coloured leather-padded door. The beige floor tiles and the erratic neon lighting proved that the French capital’s historical heritage had definitively been written off.</p>
+        <p>The frequency and number of participants in this imposed event had grown to such an extent over the cycles that the grandiose had given way to the efficient, the cultural to the functional, and the silky tapestries to washable walls.</p>
+        <p>Matching the decorum, the weary old man wore an unflattering garment, frayed at the armholes and too wide for his frail body. A jacket customary for official celebrations, but a world away from the radiant red ceremonial costume with thirty-two buttons depicted on the frescoes of the Instructional Centre.</p>
+        <p class="ind">“We are gathered in this place to authenticate the Redirection of registered cohort S 18 04, now having reached maturity. In my capacity as representative of Sirap, and by the powers vested in me, I have the honour and duty to facilitate this procedure coinciding with their fifteenth birthday. I remind you that the initial choice of a Terminal of age to select their immediate future is mandatory, strictly personal, and irrevocable. Everyone accepts its finality without remorse or regret. Right. No counter-order received so we shall begin the distribution of notepasses and–”</p>
+        <p style="font-style: italic; color: #d9cfad; letter-spacing: 0.5px; text-indent: 0; text-align: center;">“For your safety,<br />Walk, move, recharge<br />Conserve energy and health.<br />Satisfied or Switched!”</p>
+        <p class="ind">The central intercom belched out the monotonous leitmotif droning the precepts laid down by the Conglomerate. Translated into every language, twangy voice included, the message broadcast at fixed hours throughout HemiNor set the rhythm for the Megacities’ inhabitants’ <i>shifts</i> from the moment of their birth.</p>
+        <p>Despite the untimely interruption of the solemn speech, the audience complied, accustomed to this thrice-daily refrain. 	Guided by an innate reflex, each person imperceptibly adjusted their position and relaxed their toes to enable optimal contact with the installation hidden beneath the slabs, whose covering concealed a thin plate of superconducting alloy.</p>
+        <p>Whilst ensuring the constant charging of their setchip by electromagnetic radiation, the public inductor also took this opportunity to analyse vital data in real time and transmit a full <i>checkup</i>.</p>
+        <p class="ind">In barely three generations, the posture of <i>Homo sapiens </i>had adapted to the implant. No one was surprised any longer by the slight limp of entire populations, nor by the characteristic gait distinguishing them from Naturals. Unlike the impeccable age-old symmetry with which the latter moved, Terminals leaned a fraction more on their right foot with every stride. But the recent Silix updates were blurring this imbalance and restoring their nominal mobility, step by step.</p>
+        <p class="ind">A myriad of metallic jingling bounced and scattered abruptly across the faded tiling in the back row. A clumsy Natural had just dropped his equipment and, although the law strictly forbade reacting or turning around, the second participant standing in front grew impatient.</p>
+        <p>A P-Drone appeared in a muffled puff and placed a brand-new device into the unsteady hands of the sheepish culprit before vacuuming up the debris without a sound.</p>
+        <p>In five seconds, the scene was converted into a fleeting memory, and the Government Delegate resumed his spiel.</p>
+        <p class="ind">“<i>Ahem</i>, where was I? Ah yes, fundamental respect of one’s choice… Right. The <i>Global Accord </i>watches over the full fulfilment and blissful happiness of every individual within the HemiNor community. These seven Sirapian Terminals have already familiarised themselves with the regulations in force and understand the terms of use of the <i>switch</i>, as attested by the end-of-maturation certificate stamped by their Referent Instructor. Thanks to the Conglomerate’s international arrangement and the extreme generosity of the Grand F, we have pre-generated their ideal future. However, no one is obliged to keep an allocated life. Thus, freed from any commitment of duration, and in the unlikely but possible case of disappointment, each subscriber may request an alternative version on one of the thirty-two established stagedays, without justification or explanation. <i>Ahem</i>, I remind you too that the bodily shell provided at each stage remains the exclusive property of the Grand F and that you are responsible for its <i>daily</i> upkeep and maintenance. <i>Cardio</i> schedules are planned for this purpose. Please scrupulously stick to the provisioned slots… Also, I strongly insist on the Convention <i>addendum</i> in effect since yesterday. As of now, a damaged <i>sockette</i> will not be taken back or exchanged. This includes superficial scratches. Any breach observed is liable to partial or total suspension of the <i>Satisfied or Switched</i> service. Abuses specified in the last subparagraph entail immediate <i>Deactivation</i> and you are not unaware that this ultimate sanction locks the wearer onto their Stage and forces them to undergo the fate of their current life… In short, <i>for your safety, walk, move, recharge</i>. Crystal-clear, these rules of the game, right? It is now time to take note of the individual Redirections for cohort S of 18 April… First-Born of this date, Terminal S Position 1, Silix, step forward and state your direction.”</p>
+        <p class="ind">The tension rose a notch and the uncomfortable atmosphere bathing the day’s seven graduates became electric.</p>
+        <p>A nervous hand seized the leather-bound notebook held out to them and, trembling, pointed at the beige door at the far end of the hall. It opened instantly onto another tiled corridor, lit by buzzing neon just as pallid as those hanging above their heads.</p>
+        <p class="ind">“TS1 18 04, your Redirection is accepted. <i>Forget remorse and regrets, you have chosen to change your life. Satisfaction guaranteed!</i>”</p>
+        <p>Relieved, Terminal 1 exhaled deeply, smiled for a second as they saluted the Delegate, and crossed without looking back.</p>
+        <p>The door closed silently, and the official moved towards the next participant. No goodbyes, that was the rule.</p>
+        <p class="ind">The insignia pinned to some collars rewarded exceptional aptitudes, superior to the usual standard delivered by default. Cherry-picked by the Chief High-Davier, these Talents received instruction tailored to their abilities and dispensed within the rigorous Scientific Apprenticeship Center.</p>
+        <p>Never separated for more than a few hours during their short lives, Terminals 2, 5 and 6 therefore intended to embark together on the prestigious path already mapped out for them. Their career was known, expected, and assured ever since that distinctive clip adorned their uniform. A guaranteed, symbiotic future.</p>
+        <p class="ind">However, their Head Instructor had worn himself out, year after year, trying to demonstrate that the Redirection system assigned specific tracks, based on individual results, and according to a dynamic Skills ranking that was re-computed daily. At best they would get parallel posts, but certainly not combined ones. Despite his view, the stubborn trio was banking on luck and held the unshakeable conviction that the statistics would play in their favour today.</p>
+        <p>The Grand F and the Mun Era <i>Global Accord</i> promised bliss? Obviously, there was only one viable prospect for these inseparables: the same <i>jobby</i>, in lab coats, at the Observatory, with a duly shared service celluloft nearby, and at the Conglomerate’s expense. This ceremony was merely a formality.</p>
+        <p class="ind">As expected, Terminal 2 left them, notepass under arm and eyes a little glistening. Positions 5 and 6 discreetly reassured each other with two quick heel kicks.</p>
+        <p class="ind"><i>	“Tac tac?”</i> asked Terminal 5’s right foot.</p>
+        <p class="ind"><i>	“Tac tac</i>…” replied Terminal 6’s left.</p>
+        <p>Their rallying and support sign existed for almost a decade.</p>
+        <p class="ind">From the moment they entered their first term in Educational Crèche, the <i>No-Contact</i> policy rendered any hugging or even the slightest physical touch an offence, both in public and in private. They had to be creative to dodge the terrible punishments defined by the Convention.</p>
+        <p class="ind">The boots resumed their places, but the momentary and inevitable separation from TS2 stirred a deep fear and swept away their naïve certainties, raising a cloud of opaque doubts. What was really happening behind that door?</p>
+        <p>Would their shared-will carry enough weight to influence the outcome of their Redirections? And what if the Instructor was right? Perhaps it would all end there, in this shabby Opéra…</p>
+        <p class="ind">“Terminal S Position 3, Silix. As the excellent reproductive qualities of your lineage testify, and by virtue of your superb genetic heritage, you're joining the City of Cherished. You thus have the immense honour of entering the elite and contributing to the development of HemiNor by producing. Your status is extremely treasured and we are committed to protecting it, so you will always be accompanied by a security detail. The immediate deactivation of your setchip unlocks the maximum threshold of 65 years of happiness in the service of the Megacity, topped with an unlimited amount of <i>tokens</i>. Here is your notepass, a modest memento of this decisive day. All that remains is for you to choose your name and affirm your gender to start an ideal life.”</p>
+        <p class="ind">“I am Sam, just like my parents!”</p>
+        <p class="ind">The third row leapt up, windmilling their arms and began to wriggle. Raising a potential Cherished earned them an extra decade, plus a comprehensive insurance annuity in the event of selection. The culmination of twelve years of effort, generously rewarded! The occasion almost justified these ample movements, skirting the edge of an infringement.</p>
+        <p>Even if the risk of being denounced here was virtually nil, their audacious reaction was nonetheless illegal.</p>
+        <p class="ind">Suddenly, the man seated right behind them started screaming, his knees aching from the backs of the chairs propelled against him. Within seconds, his unexpected outburst spread like oil, clumping questions and a wave of panic in its path. The incoherent rumblings of the audience swelled until they spilled onto the rear wall, where they submerged the Natural in a deafening cacophony.</p>
+        <p>A shudder of terror shook the master of ceremonies and a few beads from his sweaty forehead splattered onto the old frogging of his jacket. How to quell a riot and regain control when raising one’s voice is forbidden?</p>
+        <p>The protocol specified nothing on the matter…</p>
+        <p class="ind">Probing the storm of seats and humans, he spotted his saving beacon, over there, in the back row. Unperturbed despite the clamour engulfing him. Facing raging turmoil, the Delegate hastened to order him the <i>Equipment Handover</i>.</p>
+        <p>First, <i>switch off</i>, holding his right palm open towards his ear, before lowering his clenched fist to the shoulder. Then <i>unplug</i>, left hand vertical in front of the heart; a wall from which the free index and middle fingers pull sharply away, horizontally.</p>
+        <p>There could be no mistaking the meaning of these two safety gestures. The <i>Mandatory and Universal Fundamentals </i>included the emergency idioms module from the age of six months.</p>
+        <p class="ind">The Natural interpreted the request simultaneously and dropped his freshly replaced apparatus. The surrounding hubbub drowned the metallic clang of the impact. He confirmed the facts by sending back the sequence in reverse order – <i>replug and release – </i>and finished with the proper courtesy formula, his left hand resting on the other shoulder and arm outstretched towards the ceiling.</p>
+        <p>Standing still, the young statue-man then waited for the end-of-transmission signal.</p>
+        <p class="ind">With its siren blaring this time, the P-Drone burst into the throng. The deafened assembly ceased its commotion and the equipment-exchange ballet repeated itself in an embarrassed stupor. The Delegate, relieved, used this brief respite to pat himself dry with the back of a crumpled, damp sleeve. When the autonomous cleaner vanished, he touched his chin and nodded towards the stoic Natural. <i>Thank you.</i><i></i></p>
+        <p>“Ignorance of the law is no excuse and the Mun Era tolerates no hint of violence. Ascendants, your reckless fervour has jeopardised the equilibrium and safety of this venue. Your farewells with Cherished Sam are revoked and Legal will determine your penance at the close of this ceremony. Natural, sit down. The last equipment will not be deducted from your quota and the Conglomerate will know how to compensate for your contribution at its true value. As for the rest of you… Dare to break free from the required formal silence, and at the slightest overflow, the tiniest whisper, it’s immediate evacuation and general demotion to the clan of Pursued. Crystal-clear?”</p>
+        <p>Sam rushed out, and the Ascendants in shock slumped back into their seats. The proven breach would cost them dearly. They would be subjected to personalised apologies and some penalties in favour of the offended, but what was the maximum sentence incurred for this type of noise pollution? Did it also count as a visual assault?</p>
+        <p>Anyone would probably have rejoiced in the same way if their Terminal gained access to the City! How had the situation escalated so quickly? It was ridiculous…</p>
+        <p>Who in this community had any interest whatsoever in seeing them condemned for an outburst of joy? Envious people? Or purist devotees.</p>
+        <p class="ind">“Right. Terminal S Position 4 – ah, a CYL… Step forward and state your direction.”</p>
+        <p>The young man with long hair turned and admitted that he was perfectly happy, that his family was already his source of bliss and that his future lay with them. He then smiled at the Delegate and added that he waived his right to <i>switch</i>.</p>
+        <p class="ind">“<i>Satisfied without switching!</i> TS4, your Redirection is accepted. You may leave via the front door and get on with your life. Your setchip will be deactivated when you state your official name.”</p>
+        <p>And the cryptic mention at the bottom of the invitation, received the day before, then made sense.</p>
+        <div class="messpam">&lt; Automatic messpam – Do not reply.<br /><b>🎉 🎊 Redirection Ceremony - Tomorrow 6pm @ Opéra 🎊 🎉</b><b></b><br />🤩 ➡️🚪 Your best life awaits you behind the back door 🥳 🎁<br />👍👍👍 Satisfaction guaranteed*<b> </b>! ! ! 👍👍👍<br /><i>*Active protocol in force. Audio setchip deactivation code: SAYA</i> <i>; </i><i></i><br />/&gt;</div>
+
+        <p class="ind">“Saya!” he pronounced.</p>
+        <p>A gentle warmth spread <i>crescendo</i> through his left foot to culminate on a high note at the base of the little toe.</p>
+        <p>He stifled a moan of surprise when a tingling sensation overlaid the intense burning.</p>
+        <p>New incoming message.</p>
+        <div class="messpam">&lt; Automatic messpam – Do not reply.<br />🚫⛔ STOP Setchip CYL 678352 1804 SAYA* 👋<br /><i>*Active protocol in force;</i><br />/&gt;</div>
+
+        <p class="ind">Fortunately, the confirmation of deactivation stopped all pain at once, and he broke ranks.</p>
+        <p>The man who had triggered the general agitation stood up hobbling, put on his broad-brimmed hat and meticulously folded his chair. By the time he had stored it away, his son was already waiting for him at the main entrance, sporting a black suit just as austere as his own.</p>
+        <p class="ind"><i>	</i>“You made the right choice, Saya,” “I owe you everything, Father Hamish,”<i> </i>heard the re-equipped Natural as the beige panel closed behind them.</p>
+        <p class="ind">Shoulders tense, the fifth Terminal was preparing to go, but the representative decided otherwise and his speech took an unexpected turn.</p>
+        <p class="ind">“Honour and bliss to the parents of Terminal S Position 5. Thanks to their generous donation, the renovation of the Museum’s west wing will begin tomorrow. The Observatory collaborates closely with this family – who need no introduction – and we are <i>absolutely</i> de-light-ed to offer a unique future specially developed for their Terminal, whose glorious journey is <i>definitely</i> paved with un-par-alled happiness.”</p>
+        <p class="ind">The couple in question straightened in turn and thanked him with the old-fashioned, feigned modesty of the upper bourgeoisie: with a gloved hand <i>near</i> the chin.</p>
+        <p>Then, addressing Terminal 5, the Delegate delivered his verdict.</p>
+        <p>“We have no doubt that you will show gratitude towards the Conglomerate for this priceless destiny designed for your benefit only… Sterling!”</p>
+        <p>The announcement knocked the wind out of her.</p>
+        <p>Eyes riveted on the old, bearded man’s loose button, she recalled the confusing conversation she had intercepted yesterday in the living room.</p>
+        <p class="ind"><i>	“Patience, Milady. Only a few more hours and he'll be ours! I approved the final version with Igor earlier. Just in time. He assured me that the initial investment would be recouped shortly and, in exchange for our significant contribution, he moved us to the top of the waiting list. We’re finally going to have it!”</i><i></i></p>
+        <p class="ind"><i>	“Oh, that’s splendid, Milord! It sure is a true marvel, this Silix!”</i><i></i></p>
+        <p class="ind">“<i>I hope the new delivery will suit you better, Milady,”</i> he had concluded, tapping the impeccably polished armrest of his chesterfield chair.</p>
+        <p class="ind">Sterling snatched her notebook, almost tearing it from the Delegate’s hands, whose smile had turned into a petty smirk.</p>
+        <p>It was over. Her progenitors had betrayed and surrendered her to the Conglomerate! As usual, they were imposing their will with great waves of <i>tokens</i> and inflicting remorse and regret upon her.</p>
+        <p class="ind">This name, assigned by authority, deprived her of her most fundamental right. She would choose nothing. Her past would disappear behind that hideous padded door and she would find herself completely alone. Again. <i>Happy birthday…</i><i></i></p>
+      </div>
+      <div class="excerpt-end">
+        <div class="excerpt-end-note">Read what happens next on…</div>
+        <div class="cta-wrapper">
+          <a href="https://www.amazon.com/ScarCity-Generation-Silix-Book-1-ebook/dp/B0HPP37KHN/" target="_blank" class="btn-action btn-amazon">Amazon</a>
+          <a href="https://play.google.com/store/books/details?id=JWIlEgAAQBAJ" target="_blank" class="btn-action btn-google">Google Books</a>
+          <a href="https://www.kobo.com/us/en/series/generation-silix-1" target="_blank" class="btn-action btn-kobo">Kobo</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Pied de page -->
+  <footer>
+    <p>©2026 storytellise - all rights reserved | <a href="mailto:storytellise@proton.me" class="link-ghost">Contact</a> | <a href="https://www.instagram.com/storytellise/" target="_blank" rel="noopener" class="link-ghost">Instagram</a> | <a href="./mentions.html" class="link-ghost">Legal notice</a></p>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      revealEls.forEach((el) => io.observe(el));
+    } else {
+      revealEls.forEach((el) => el.classList.add('visible'));
+    }
+  </script>
+
+
+  <!-- Cookie banner (GDPR) -->
+  <div id="cookie-banner">
+    <p>This site uses Google Analytics for anonymised audience measurement. The cookie is only set with your consent. <a href="./mentions.html">Learn more</a></p>
+    <div class="cookie-actions">
+      <button onclick="__setConsent('granted')">Accept</button>
+      <button onclick="__setConsent('denied')" class="cookie-refuse">Decline</button>
+    </div>
+  </div>
+
+
+  <!-- Popup newsletter -->
+  <div class="nl-popup" id="nl-popup">
+    <button class="nl-close" onclick="nlClose()" aria-label="Fermer">&#10005;</button>
+    <h3>News from the HemiNor</h3>
+    <p>Behind-the-scenes of the writing, <strong>Volume 2</strong>'s release date and saga news, once a month MAX, in your inbox. No spam, one-click unsubscribe.</p>
+    <form onsubmit="return nlSubmit(event)">
+      <input type="email" id="nl-email" placeholder="your@email.com" required />
+      <button type="submit">Subscribe</button>
+    </form>
+    <p class="nl-note">By subscribing, you agree to receive the storytellise newsletter. Your data is never shared.</p>
+  </div>
+
+  <script>
+    // NEWSLETTER - Point de branchement : collez ici l'URL de votre service
+    // (Buttondown, Formspree, Mailchimp, Brevo...) et le formulaire l'utilisera.
+    // Tant que vide : fallback mailto (fonctionne dès aujourd'hui).
+    var NL_ENDPOINT = "";
+
+    function nlOpen() {
+      var p = document.getElementById('nl-popup');
+      if (!p) return;
+      p.style.display = 'block';
+      requestAnimationFrame(function() { requestAnimationFrame(function() { p.classList.add('open'); }); });
+    }
+    function nlClose(permanent) {
+      var p = document.getElementById('nl-popup');
+      if (!p) return;
+      p.classList.remove('open');
+      setTimeout(function() { p.style.display = 'none'; }, 500);
+      try { localStorage.setItem('nl-state', permanent ? 'dismissed:' + Date.now() : 'session'); } catch (e) {}
+    }
+    function nlSubmit(e) {
+      e.preventDefault();
+      var email = document.getElementById('nl-email').value.trim();
+      if (!email) return false;
+      var done = function() {
+        var p = document.getElementById('nl-popup');
+        p.querySelector('form').style.display = 'none';
+        p.querySelector('h3').textContent = 'Thank you! See you soon in the HemiNor.';
+        try { localStorage.setItem('nl-state', 'subscribed'); } catch (err) {}
+        setTimeout(function() { nlClose(true); }, 2500);
+      };
+      if (NL_ENDPOINT) {
+        fetch(NL_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({ email: email })
+        }).then(done).catch(done);
+      } else {
+        var sujet = encodeURIComponent('Inscription newsletter');
+        var corps = encodeURIComponent('Bonjour,\nJe souhaite s\'inscrire a la newsletter storytellise.\nEmail : ' + email);
+        window.location.href = 'mailto:storytellise@proton.me?subject=' + sujet + '&body=' + corps;
+        done();
+      }
+      return false;
+    }
+    (function () {
+      var state = null;
+      try { state = localStorage.getItem('nl-state'); } catch (e) {}
+      if (state === 'subscribed') return;
+      if (state && state.indexOf('dismissed:') === 0) {
+        // re-proposer après 7 jours
+        if (Date.now() - parseInt(state.slice(10), 10) < 7 * 864e5) return;
+      }
+      var shown = false;
+      var show = function () {
+        if (shown) return;
+        var cb = document.getElementById('cookie-banner');
+        if (cb && cb.style.display !== 'none') {
+          // le bandeau cookies est encore affiché : on attend qu'il soit traité
+          setTimeout(show, 3000);
+          return;
+        }
+        shown = true;
+        setTimeout(nlOpen, 800);
+        window.removeEventListener('scroll', show);
+      };
+      setTimeout(show, 14000);
+      window.addEventListener('scroll', function () {
+        if ((window.scrollY || document.documentElement.scrollTop) > document.body.scrollHeight * 0.4) show();
+      }, { passive: true });
+    })();
+  </script>
+
+</body>
+
+</html>

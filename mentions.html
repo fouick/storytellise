@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mentions légales | E.F. Wick</title>
+  <meta name="description" content="Mentions légales du site storytellise.com - éditeur, hébergement, propriété intellectuelle, données personnelles et cookies.">
+  <meta name="theme-color" content="#0b0c10">
+
+  <!-- Open Graph / réseaux sociaux -->
+  <meta property="og:type" content="book">
+  <meta property="og:title" content="ScarCity - E.F. Wick">
+  <meta property="og:description" content="Bonheur. Santé. Vie privée. Choisissez-en deux. Tome 1 de la saga Génération Silix.">
+  <meta property="og:image" content="https://storytellise.com/cover.jpg">
+  <meta property="og:url" content="https://storytellise.com/scarcity-fr.html">
+  <meta property="og:locale" content="fr_FR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ScarCity - E.F. Wick">
+  <meta name="twitter:description" content="Bonheur. Santé. Vie privée. Choisissez-en deux. Tome 1 de la saga Génération Silix.">
+  <meta name="twitter:image" content="https://storytellise.com/cover.jpg">
+
+  <link rel="canonical" href="https://storytellise.com/scarcity-fr.html">
+  <link rel="alternate" hreflang="en" href="https://storytellise.com/index.html">
+  <link rel="alternate" hreflang="fr" href="https://storytellise.com/scarcity-fr.html">
+  <link rel="alternate" hreflang="x-default" href="https://storytellise.com/index.html">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230b0c10'/%3E%3Ctext x='32' y='45' font-family='Arial' font-size='36' font-weight='bold' fill='%23bdb292' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+
+  <!-- Données structurées : livre -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Book",
+    "name": "ScarCity",
+    "author": { "@type": "Person", "name": "E.F. Wick" },
+    "inLanguage": "fr",
+    "genre": "Dystopie, Science-fiction",
+    "bookEdition": "Génération Silix, Tome 1",
+    "url": "https://storytellise.com/scarcity-fr.html",
+    "image": "https://storytellise.com/cover.jpg",
+    "publisher": { "@type": "Organization", "name": "storytellise" },
+    "workExample": [
+      {
+        "@type": "Book",
+        "bookFormat": "https://schema.org/EBook",
+        "potentialAction": {
+          "@type": "ReadAction",
+          "target": "https://amzn.eu/d/0grk4db6"
+        }
+      }
+    ]
+  }
+  </script>
+  <style>
+    /* Réinitialisation et styles globaux */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #0b0c10;
+      color: #c5cad0;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Arrière-plan */
+    .bg-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #0b0c10;
+      background-size: cover;
+      background-position: center;
+      filter: blur(50px) brightness(0.15);
+      z-index: -2;
+      transform: scale(1.1);
+    }
+
+    /* Barre de navigation */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 8%;
+      background: rgba(11, 12, 16, 0.8);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: -1px;
+      color: #bdb292;
+      text-decoration: none;
+    }
+
+    /* Bannière animée */
+    .video-banner {
+      position: relative;
+      height: 64vh;
+      min-height: 430px;
+      overflow: hidden;
+      background: #0b0c10;
+    }
+
+    .video-banner video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 32%;
+    }
+
+    .banner-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background:
+        linear-gradient(to bottom, rgba(11, 12, 16, 0.35) 0%, transparent 22%, transparent 72%, rgba(11, 12, 16, 0.45) 100%),
+        radial-gradient(ellipse 75% 65% at 50% 55%, rgba(11, 12, 16, 0.62) 0%, rgba(11, 12, 16, 0.34) 55%, rgba(11, 12, 16, 0.08) 100%);
+      z-index: 1;
+      padding: 0 25px;
+    }
+
+    .banner-kicker {
+      font-size: 1.55rem;
+      color: #e8edf3;
+      font-style: italic;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9), 0 4px 24px rgba(0, 0, 0, 0.6);
+    }
+
+    .banner-kicker-sub {
+      font-size: 1.5rem;
+      color: #d9cfad;
+      font-style: italic;
+      font-weight: 600;
+      margin-top: 2px;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9), 0 4px 24px rgba(0, 0, 0, 0.6);
+    }
+
+    .banner-title {
+      font-size: 6.5rem;
+      font-weight: 900;
+      color: #f1f5f9;
+      letter-spacing: -3px;
+      line-height: 1.05;
+      margin-top: 18px;
+      text-shadow: 0 3px 10px rgba(0, 0, 0, 0.9), 0 8px 36px rgba(0, 0, 0, 0.65);
+    }
+
+    .banner-author {
+      margin-top: 18px;
+      color: #cbd5e1;
+      font-size: 1.05rem;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9), 0 4px 24px rgba(0, 0, 0, 0.6);
+    }
+
+    .banner-fade {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 130px;
+      background: linear-gradient(to bottom, transparent, #0b0c10);
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .video-banner video {
+        display: none;
+      }
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #94a3b8;
+      text-decoration: none;
+      margin-left: 15px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #bdb292;
+    }
+
+    .nav-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-links a.btn-nav {
+      background: #1f5e71;
+      color: #bdb292;
+      padding: 10px 22px;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .nav-links a.btn-nav:hover {
+      background: #1f5e71;
+      transform: translateY(-1px);
+    }
+
+    /* Section Héros Principale */
+    .hero-container {
+      max-width: 1200px;
+      margin: 50px auto 80px auto;
+      padding: 0 40px;
+      display: flex;
+      gap: 60px;
+      align-items: flex-start;
+    }
+
+    .hero-left {
+      flex: 1;
+      text-align: center;
+    }
+
+    .hero-right {
+      flex: 1.2;
+      text-align: justify;
+    }
+
+    /* Présentation de la couverture */
+    .cover-box {
+      display: inline-block;
+      position: relative;
+      max-width: 400px;
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
+      transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    .cover-box:hover {
+      transform: translateY(-10px) rotate(-1.5deg) scale(1.02);
+    }
+
+    .cover-img {
+      width: 100%;
+      border-radius: 12px;
+      display: block;
+    }
+
+    /* Mise en évidence du Slogan */
+    .slogan-box {
+      background: rgba(77, 169, 211, 0.08);
+      border-left: 4px solid #1f5e71;
+      padding: 15px 15px;
+      margin-bottom: 20px;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .slogan-txt {
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: rgb(125, 158, 185);
+      letter-spacing: 0.1px;
+    }
+
+    /* Titre et Métadonnées */
+    h1.main-title {
+      font-size: 4rem;
+      font-weight: 900;
+      color: #bdb292;
+      line-height: 1.1;
+      margin-bottom: 8px;
+      letter-spacing: -1px;
+    }
+
+    .author-name {
+      font-size: 1.2rem;
+      color: #94a3b8;
+      margin-bottom: 15px;
+    }
+
+    .author-name strong {
+      color: #bdb292;
+    }
+
+    .accent-line {
+      width: 80px;
+      height: 4px;
+      background: #1f5e71;
+      margin-bottom: 20px;
+      border-radius: 2px;
+    }
+
+    /* Contenu du texte */
+    .section-label {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #64748b;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .synopsis-text {
+      font-size: 1.15rem;
+      color: #bdb292;
+      margin-bottom: 20px;
+      text-align: justify;
+      line-height: 1.5;
+    }
+
+    /* Ligne d'accent centrée sous la couverture */
+    .hero-left .accent-line {
+      margin: 25px auto 20px auto;
+    }
+
+    /* Boutons CTA */
+    .cta-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    /* Boutons sur une ligne, dans la largeur de la couverture */
+    .hero-left .cta-wrapper {
+      max-width: 400px;
+      flex-wrap: nowrap;
+      gap: 10px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-left .btn-action {
+      flex: 1 1 auto;
+      font-size: 0.9rem;
+      padding: 9px 10px;
+      white-space: nowrap;
+    }
+
+    .btn-action {
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 1.00rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+      text-align: center;
+      box-sizing: border-box;
+    }
+
+    .btn-amazon {
+      color: #0b0c10;
+      background: #ff9900;
+      box-shadow: 0 4px 20px rgba(255, 153, 0, 0.25);
+    }
+
+    .btn-amazon:hover {
+      background: #e68a00;
+      color: #0b0c10;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(255, 153, 0, 0.4);
+    }
+
+    .btn-fnac {
+      color: #ff9900;
+      background: #0b0c10;
+      box-shadow: 0 4px 20px rgba(255, 153, 0, 0.25);
+    }
+
+    .btn-fnac:hover {
+      background: #e68a00;
+      color: #0b0c10;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(255, 153, 0, 0.4);
+    }
+
+
+    .btn-kobo {
+      background: #0b0c10;
+      color: #bd1a1ad2;
+      box-shadow: 0 4px 20px rgba(255, 8, 8, 0.25);
+    }
+
+    .btn-kobo:hover {
+      background: #ff00009c;
+      color: #0b0c10;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(255, 13, 0, 0.4);
+    }
+
+    .btn-google {
+      background: #0b0c10;
+      color: #62a6ffd2;
+      box-shadow: 0 4px 20px rgba(8, 144, 255, 0.25);
+    }
+
+    .btn-google:hover {
+      background: rgba(50, 150, 243, 0.776);
+      color: #0b0c10;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 140, 255, 0.4);
+    }
+
+    .btn-discover {
+      background: rgba(255, 255, 255, 0.06);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .btn-discover:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    /* Section Caractéristiques (Features) */
+    .features-section {
+      max-width: 1200px;
+      margin: 80px auto;
+      padding: 0 40px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .feature-item {
+      background: rgba(17, 24, 39, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      padding: 35px;
+      border-radius: 12px;
+      backdrop-filter: blur(15px);
+      transition: border-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .feature-item:hover {
+      border-color: rgba(67, 193, 215, 0.2);
+      transform: translateY(-4px);
+    }
+
+    .feature-badge {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      display: inline-block;
+    }
+
+    .feature-item h3 {
+      font-size: 1.3rem;
+      color: #ffffff;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .feature-item p {
+      font-size: 0.98rem;
+      color: #94a3b8;
+      line-height: 1.6;
+    }
+
+    /* Pied de page */
+    footer {
+      text-align: center;
+      padding: 20px 20px;
+      margin-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      background: rgba(7, 8, 10, 0.85);
+      backdrop-filter: blur(10px);
+    }
+
+    footer p {
+      font-size: 0.9rem;
+      color: #475569;
+      letter-spacing: 0.5px;
+    }
+
+    a.link-ghost {
+      color: #475569;
+    }
+
+    /* ===== Sections de contenu ===== */
+    .content-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px 40px 0 40px;
+    }
+
+    .content-section h2 {
+      font-size: 2rem;
+      color: #e2e8f0;
+      margin-bottom: 35px;
+      letter-spacing: -0.5px;
+    }
+
+    /* Citation choc */
+    .quote-band {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 90px 40px 0 40px;
+      text-align: center;
+    }
+
+    blockquote.big-quote {
+      font-size: 1.7rem;
+      line-height: 1.55;
+      color: #e2e8f0;
+      font-style: italic;
+      position: relative;
+    }
+
+    blockquote.big-quote::before {
+      content: '\201C';
+      display: block;
+      font-size: 5rem;
+      line-height: 1;
+      color: #1f5e71;
+      font-style: normal;
+      margin-bottom: 10px;
+    }
+
+    blockquote.big-quote footer {
+      margin-top: 20px;
+      font-size: 0.9rem;
+      font-style: normal;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #64748b;
+    }
+
+    /* Fiche du livre */
+    .specs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .spec-tile {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 14px;
+      padding: 25px 20px;
+      text-align: center;
+      transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.3s;
+    }
+
+    .spec-tile:hover {
+      transform: translateY(-4px);
+      border-color: rgba(31, 94, 113, 0.6);
+    }
+
+    .spec-tile .spec-value {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #bdb292;
+      margin-bottom: 6px;
+    }
+
+    .spec-tile .spec-key {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #64748b;
+    }
+
+    /* Cartes "Pour les lecteurs de" */
+    .vibes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .vibe-card {
+      background: linear-gradient(160deg, rgba(31, 94, 113, 0.12), rgba(255, 255, 255, 0.02));
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 14px;
+      padding: 30px;
+      transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    .vibe-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .vibe-card h3 {
+      font-size: 1.3rem;
+      color: #4da9d3;
+      margin-bottom: 10px;
+    }
+
+    .vibe-card p {
+      font-size: 0.95rem;
+      color: #94a3b8;
+      line-height: 1.6;
+    }
+
+    .section-cta {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    /* Bio de l'auteur */
+    .author-bio {
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 16px;
+      padding: 40px;
+    }
+
+    .author-monogram {
+      flex-shrink: 0;
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #1f5e71, #0b0c10);
+      border: 2px solid rgba(189, 178, 146, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: #bdb292;
+      letter-spacing: 2px;
+    }
+
+    .author-bio-text p {
+      color: #94a3b8;
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+
+    .author-bio-text .bio-sign {
+      color: #bdb292;
+      font-style: italic;
+    }
+
+    /* La saga */
+    .series-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+    .series-card {
+      border-radius: 16px;
+      padding: 35px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.02);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .series-card.current {
+      background: linear-gradient(160deg, rgba(31, 94, 113, 0.18), rgba(255, 255, 255, 0.02));
+      border-color: rgba(31, 94, 113, 0.5);
+    }
+
+    .series-card .series-num {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #64748b;
+      margin-bottom: 8px;
+    }
+
+    .series-card h3 {
+      font-size: 1.5rem;
+      color: #e2e8f0;
+      margin-bottom: 10px;
+    }
+
+    .series-card p {
+      color: #94a3b8;
+      margin-bottom: 20px;
+    }
+
+    .series-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 5px 12px;
+      border-radius: 20px;
+      margin-bottom: 15px;
+    }
+
+    .series-badge.out {
+      background: rgba(189, 178, 146, 0.15);
+      color: #bdb292;
+    }
+
+    .series-badge.soon {
+      background: rgba(77, 169, 211, 0.12);
+      color: #4da9d3;
+    }
+
+    /* Newsletter */
+    .newsletter-band {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 90px 40px 90px 40px;
+      text-align: center;
+    }
+
+    .newsletter-band h2 {
+      font-size: 2rem;
+      color: #e2e8f0;
+      margin-bottom: 12px;
+    }
+
+    .newsletter-band p {
+      color: #94a3b8;
+      margin-bottom: 30px;
+    }
+
+    .btn-newsletter {
+      display: inline-block;
+      padding: 13px 34px;
+      border-radius: 10px;
+      background: #1f5e71;
+      color: #e2e8f0;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+      box-shadow: 0 4px 25px rgba(31, 94, 113, 0.35);
+    }
+
+    .btn-newsletter:hover {
+      background: #2a7d95;
+      transform: translateY(-2px);
+    }
+
+    /* Apparition au défilement */
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
+
+    /* Media Queries pour le Responsive */
+    @media (max-width: 968px) {
+      /* Header + bannière - mobile */
+      header {
+        padding: 20px 5%;
+      }
+
+      .nav-logo {
+        display: none;
+      }
+
+      .video-banner {
+        height: 48vh;
+        min-height: 340px;
+      }
+
+      .banner-title {
+        font-size: 3.4rem;
+        letter-spacing: -1px;
+      }
+
+      .banner-kicker {
+        font-size: 1.15rem;
+      }
+
+      .banner-kicker-sub {
+        font-size: 1.1rem;
+      }
+
+      .banner-author {
+        font-size: 0.95rem;
+      }
+
+      .hero-container {
+        flex-direction: column;
+        text-align: center;
+        align-items: stretch;
+        gap: 45px;
+        margin-top: 120px;
+        padding: 0 25px;
+      }
+
+      .hero-right {
+        width: 100%;
+      }
+
+      h1.main-title {
+        font-size: 3rem;
+      }
+
+      .slogan-box {
+        border-left: none;
+        border-top: 4px solid #bdb292;
+        border-radius: 8px;
+        padding: 15px;
+      }
+
+      .accent-line {
+        margin: 0 auto 30px auto;
+      }
+
+      .synopsis-text {
+        text-align: center;
+      }
+
+      .cta-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .btn-action {
+        width: 100%;
+        flex: 0 0 auto;
+      }
+
+      .features-section {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 25px;
+        margin-top: 40px;
+      }
+
+      /* Sections de contenu - mobile */
+      .content-section {
+        padding: 55px 25px 0 25px;
+      }
+
+      .content-section h2 {
+        font-size: 1.6rem;
+      }
+
+      .quote-band {
+        padding: 60px 25px 0 25px;
+      }
+
+      blockquote.big-quote {
+        font-size: 1.25rem;
+      }
+
+      .specs-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .vibes-grid,
+      .series-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .author-bio {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 30px 25px;
+      }
+
+      .newsletter-band {
+        padding: 60px 25px;
+      }
+
+      .newsletter-band h2 {
+        font-size: 1.6rem;
+      }
+    }
+  
+    /* Bandeau cookies (RGPD) */
+    #cookie-banner {
+      position: fixed;
+      bottom: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 200;
+      width: min(680px, calc(100% - 30px));
+      background: rgba(15, 17, 23, 0.97);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 16px 20px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      backdrop-filter: blur(8px);
+    }
+
+    #cookie-banner p { font-size: 0.85rem; color: #94a3b8; line-height: 1.5; margin: 0; }
+    #cookie-banner a { color: #4da9d3; }
+
+    .cookie-actions { display: flex; gap: 10px; flex-shrink: 0; }
+
+    .cookie-actions button {
+      padding: 9px 18px;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .cookie-actions button:first-child { background: #1f5e71; color: #e2e8f0; }
+    .cookie-actions button:first-child:hover { background: #2a7d95; }
+    .cookie-actions .cookie-refuse {
+      background: transparent;
+      color: #94a3b8;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    .cookie-actions .cookie-refuse:hover { color: #e2e8f0; }
+
+    @media (max-width: 968px) {
+      #cookie-banner { flex-direction: column; align-items: stretch; text-align: center; }
+      .cookie-actions { justify-content: center; }
+    }
+  
+    /* Popup newsletter */
+    .nl-popup {
+      position: fixed;
+      bottom: 18px;
+      right: 18px;
+      z-index: 190;
+      width: 340px;
+      max-width: calc(100vw - 36px);
+      background: rgba(15, 17, 23, 0.98);
+      border: 1px solid rgba(31, 94, 113, 0.45);
+      border-radius: 14px;
+      padding: 24px 24px 20px 24px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65);
+      transform: translateX(120%);
+      transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+      display: none;
+    }
+
+    .nl-popup.open { transform: translateX(0); }
+
+    .nl-popup h3 {
+      font-size: 1.25rem;
+      color: #e2e8f0;
+      margin-bottom: 8px;
+      letter-spacing: -0.3px;
+    }
+
+    .nl-popup p { font-size: 0.88rem; color: #94a3b8; line-height: 1.55; margin-bottom: 14px; }
+
+    .nl-popup form { display: flex; gap: 8px; }
+
+    .nl-popup input[type="email"] {
+      flex: 1;
+      min-width: 0;
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.05);
+      color: #e2e8f0;
+      font-size: 0.9rem;
+      font-family: inherit;
+    }
+
+    .nl-popup input[type="email"]:focus {
+      outline: none;
+      border-color: #1f5e71;
+    }
+
+    .nl-popup button {
+      padding: 10px 16px;
+      border: none;
+      border-radius: 8px;
+      background: #1f5e71;
+      color: #e2e8f0;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      font-family: inherit;
+      white-space: nowrap;
+    }
+
+    .nl-popup button:hover { background: #2a7d95; }
+
+    .nl-popup .nl-close {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      background: none;
+      border: none;
+      color: #64748b;
+      font-size: 1.1rem;
+      cursor: pointer;
+      padding: 4px;
+      line-height: 1;
+    }
+
+    .nl-popup .nl-close:hover { color: #e2e8f0; }
+
+    .nl-popup .nl-note {
+      font-size: 0.72rem !important;
+      color: #64748b !important;
+      margin: 10px 0 0 0 !important;
+    }
+
+    @media (max-width: 968px) {
+      .nl-popup { bottom: 0; right: 0; left: 0; width: 100%; max-width: none; border-radius: 14px 14px 0 0; }
+    }
+  </style>
+  <!-- Cookies / RGPD : Google Analytics chargé uniquement après consentement -->
+  <script>
+    (function () {
+      function loadGA() {
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-TWLXRRDC8D';
+        document.head.appendChild(s);
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-TWLXRRDC8D');
+      }
+      function setConsent(choice) {
+        try { localStorage.setItem('cookie-consent', choice); } catch (e) {}
+        var b = document.getElementById('cookie-banner');
+        if (b) b.remove();
+        if (choice === 'granted') loadGA();
+      }
+      window.__setConsent = setConsent;
+      document.addEventListener('DOMContentLoaded', function () {
+        var c = null;
+        try { c = localStorage.getItem('cookie-consent'); } catch (e) {}
+        if (c === 'granted') loadGA();
+        else if (!c) {
+          var b = document.getElementById('cookie-banner');
+          if (b) b.style.display = 'flex';
+        }
+      });
+    })();
+  </script>
+
+</head>
+
+<body>
+
+  <!-- Fond flouté d'ambiance -->
+  <div class="bg-overlay"></div>
+
+  <!-- En-tête / Navigation -->
+  <header>
+    <ul class="nav-links nav-left">
+      <li><a href="./scarcity-fr.html">ScarCity</a></li>
+      <li><a href="./extrait.html">Extrait</a></li>
+      <li><a href="./auteur.html">Bio</a></li>
+      <li><a href="./index.html">English</a></li>
+    </ul>
+    <a href="#" class="nav-logo">E.F. Wick</a>
+    <ul class="nav-links nav-right">
+      <li><a href="https://www.instagram.com/storytellise/" target="_blank" rel="noopener" aria-label="Instagram" class="nav-icon">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5"></rect><circle cx="12" cy="12" r="4.2"></circle><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"></circle></svg>
+      </a></li>
+      <li><a href="mailto:storytellise@proton.me">Contact</a></li>
+    </ul>
+  </header>
+
+  <!-- Bannière animée : la cascade -->
+  <section class="video-banner">
+    <video autoplay muted loop playsinline poster="cascade-flow-20-banner.jpg">
+      <source src="cascade-flow-20-banner.mp4" type="video/mp4">
+    </video>
+    <div class="banner-overlay">
+      <h1 class="banner-title">ScarCity</h1>
+      <div class="banner-kicker">Bonheur. Santé. Vie privée.</div>
+      <div class="banner-kicker-sub">Choisissez-en deux.</div>
+    </div>
+    <div class="banner-fade"></div>
+  </section>
+
+  
+  <main>
+    <section class="content-section" id="mentions" style="padding-top: 140px; max-width: 800px;">
+      <div class="section-label">Informations légales</div>
+      <h1 style="font-size: 2.4rem; color: #e2e8f0; margin-bottom: 35px; letter-spacing: -0.5px;">Mentions légales</h1>
+      <div class="author-bio" style="display: block; padding: 45px 50px;">
+        <div class="author-bio-text" style="max-width: none;">
+
+          <h3 style="color:#e2e8f0; margin-bottom: 10px;">Éditeur du site</h3>
+          <p>Le site <strong>storytellise.com</strong> est édité par <strong>storytellise</strong> (E.F. Wick), auteur-éditeur.</p>
+          <p>Contact : <a href="mailto:storytellise@proton.me" style="color:#4da9d3;">storytellise@proton.me</a> | Instagram : <a href="https://www.instagram.com/storytellise/" target="_blank" rel="noopener" style="color:#4da9d3;">@storytellise</a></p>
+          <!-- REMPLACEZ par vos informations si besoin : SIRET, adresse postale, etc. -->
+
+          <h3 style="color:#e2e8f0; margin: 28px 0 10px 0;">Directrice de la publication</h3>
+          <p>E.F. Wick.</p>
+
+          <h3 style="color:#e2e8f0; margin: 28px 0 10px 0;">Hébergement</h3>
+          <p>Le site est hébergé par <strong>GitHub Pages</strong> (GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis - <a href="https://github.com" target="_blank" rel="noopener" style="color:#4da9d3;">github.com</a>).</p>
+
+          <h3 style="color:#e2e8f0; margin: 28px 0 10px 0;">Propriété intellectuelle</h3>
+          <p>L'ensemble des contenus présents sur ce site (textes, illustration de couverture, animation, marque <em>Génération Silix</em>) est la propriété exclusive de leur autrice. Toute reproduction, représentation ou diffusion, totale ou partielle, sans autorisation écrite préalable est interdite et constitue une contrefaçon au sens des articles L.335-2 et suivants du Code de la propriété intellectuelle.</p>
+          <p>Le roman <em>ScarCity</em> (ISBN&nbsp;979-1098083105) est déposé auprès des organismes de dépôt légal.</p>
+
+          <h3 style="color:#e2e8f0; margin: 28px 0 10px 0;">Données personnelles et cookies</h3>
+          <p>Ce site ne collecte aucune donnée personnelle en dehors de&nbsp;:</p>
+          <p>- <strong>Mesure d'audience</strong> : Google Analytics, uniquement après votre consentement explicite via le bandeau dédié (conservation du choix 6&nbsp;mois). Vous pouvez refuser ces cookies sans que cela affecte votre navigation. Les données collectées sont anonymisées et ne permettent pas de vous identifier.</p>
+          <p>- <strong>Newsletter</strong> : votre adresse e-mail est collectée uniquement avec votre consentement, pour l'envoi des actualités de la saga. Vous pouvez vous désinscrire à tout moment.</p>
+          <p>Conformément au RGPD et à la loi Informatique et Libertés, vous disposez d'un droit d'accès, de rectification, d'effacement et d'opposition sur vos données. Pour l'exercer, écrivez à <a href="mailto:storytellise@proton.me" style="color:#4da9d3;">storytellise@proton.me</a>.</p>
+          <p>Ce site ne vend ni ne partage vos données avec des tiers à des fins commerciales.</p>
+
+          <h3 style="color:#e2e8f0; margin: 28px 0 10px 0;">Liens externes</h3>
+          <p>Ce site contient des liens vers des sites tiers (Amazon, Kobo, Fnac, Google Play, Goodreads, Instagram) dont storytellise ne maîtrise pas le contenu ni les pratiques en matière de données.</p>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Pied de page -->
+  <footer>
+    <p>©2026 storytellise - Tous droits réservés | <a href="mailto:storytellise@proton.me" class="link-ghost">Contact</a> | <a href="https://www.instagram.com/storytellise/" target="_blank" rel="noopener" class="link-ghost">Instagram</a> | <a href="./mentions.html" class="link-ghost">Mentions légales</a></p>
+  </footer>
+
+  <script>
+    // Apparition au défilement
+    const revealEls = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      revealEls.forEach((el) => io.observe(el));
+    } else {
+      revealEls.forEach((el) => el.classList.add('visible'));
+    }
+  </script>
+
+
+  <!-- Bandeau cookies (RGPD) -->
+  <div id="cookie-banner">
+    <p>Ce site utilise Google Analytics pour mesurer son audience de façon anonymisée. Cookie déposé uniquement avec votre accord. <a href="./mentions.html">En savoir plus</a></p>
+    <div class="cookie-actions">
+      <button onclick="__setConsent('granted')">Accepter</button>
+      <button onclick="__setConsent('denied')" class="cookie-refuse">Refuser</button>
+    </div>
+  </div>
+
+
+  <!-- Popup newsletter -->
+  <div class="nl-popup" id="nl-popup">
+    <button class="nl-close" onclick="nlClose()" aria-label="Fermer">&#10005;</button>
+    <h3>Nouvelles de l'HemiNor</h3>
+    <p>Coulisses d'écriture, date de sortie du <strong>Tome 2</strong> et actualités de la saga, une fois par mois, dans votre boîte mail. Pas de spam, désinscription en un clic.</p>
+    <form onsubmit="return nlSubmit(event)">
+      <input type="email" id="nl-email" placeholder="votre@email.com" required />
+      <button type="submit">Je m'inscris</button>
+    </form>
+    <p class="nl-note">En vous inscrivant, vous acceptez de recevoir la newsletter storytellise. Vos données ne sont jamais partagées.</p>
+  </div>
+
+  <script>
+    // NEWSLETTER - Point de branchement : collez ici l'URL de votre service
+    // (Buttondown, Formspree, Mailchimp, Brevo...) et le formulaire l'utilisera.
+    // Tant que vide : fallback mailto (fonctionne dès aujourd'hui).
+    var NL_ENDPOINT = "";
+
+    function nlOpen() {
+      var p = document.getElementById('nl-popup');
+      if (!p) return;
+      p.style.display = 'block';
+      requestAnimationFrame(function() { requestAnimationFrame(function() { p.classList.add('open'); }); });
+    }
+    function nlClose(permanent) {
+      var p = document.getElementById('nl-popup');
+      if (!p) return;
+      p.classList.remove('open');
+      setTimeout(function() { p.style.display = 'none'; }, 500);
+      try { localStorage.setItem('nl-state', permanent ? 'dismissed:' + Date.now() : 'session'); } catch (e) {}
+    }
+    function nlSubmit(e) {
+      e.preventDefault();
+      var email = document.getElementById('nl-email').value.trim();
+      if (!email) return false;
+      var done = function() {
+        var p = document.getElementById('nl-popup');
+        p.querySelector('form').style.display = 'none';
+        p.querySelector('h3').textContent = 'Merci ! À très vite dans l'HemiNor.';
+        try { localStorage.setItem('nl-state', 'subscribed'); } catch (err) {}
+        setTimeout(function() { nlClose(true); }, 2500);
+      };
+      if (NL_ENDPOINT) {
+        fetch(NL_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({ email: email })
+        }).then(done).catch(done);
+      } else {
+        var sujet = encodeURIComponent('Inscription newsletter');
+        var corps = encodeURIComponent('Bonjour,\nJe souhaite s\'inscrire a la newsletter storytellise.\nEmail : ' + email);
+        window.location.href = 'mailto:storytellise@proton.me?subject=' + sujet + '&body=' + corps;
+        done();
+      }
+      return false;
+    }
+    (function () {
+      var state = null;
+      try { state = localStorage.getItem('nl-state'); } catch (e) {}
+      if (state === 'subscribed') return;
+      if (state && state.indexOf('dismissed:') === 0) {
+        // re-proposer après 7 jours
+        if (Date.now() - parseInt(state.slice(10), 10) < 7 * 864e5) return;
+      }
+      var shown = false;
+      var show = function () {
+        if (shown) return; shown = true;
+        setTimeout(nlOpen, 800);
+        window.removeEventListener('scroll', show);
+      };
+      setTimeout(show, 14000);
+      window.addEventListener('scroll', function () {
+        if ((window.scrollY || document.documentElement.scrollTop) > document.body.scrollHeight * 0.4) show();
+      }, { passive: true });
+    })();
+  </script>
+
+</body>
+
+</html>
