@@ -117,8 +117,8 @@
     /* Animated banner */
     .video-banner {
       position: relative;
-      height: 64vh;
-      min-height: 430px;
+      height: 45vh;
+      min-height: 300px;
       overflow: hidden;
       background: #0b0c10;
     }
@@ -128,7 +128,8 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 100%;
+      height: 64vh; /* = bannière complète de la landing : image identique, coupée en bas */
+      min-height: 430px;
       object-fit: cover;
       object-position: center 32%;
     }
@@ -157,7 +158,11 @@
       font-style: italic;
       letter-spacing: 1px;
       text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9), 0 4px 24px rgba(0, 0, 0, 0.6);
-    }
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: calc(max(32vh, 215px) + 34px);
+    }}
 
     .banner-kicker-sub {
       font-size: 1.5rem;
@@ -169,13 +174,18 @@
     }
 
     .banner-title {
-      font-size: 6.5rem;
-      font-weight: 900;
+      font-size: 3.5rem;
+      font-style: italic;
+      font-weight: 400;
       color: #f1f5f9;
       letter-spacing: -3px;
       line-height: 1.05;
-      margin-top: 18px;
       text-shadow: 0 3px 10px rgba(0, 0, 0, 0.9), 0 8px 36px rgba(0, 0, 0, 0.65);
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: max(32vh, 215px); /* aligné sur le centre du titre ScarCity (landing) */
+      transform: translateY(-50%);
     }
 
     .banner-author {
@@ -190,7 +200,7 @@
       bottom: 0;
       left: 0;
       width: 100%;
-      height: 130px;
+      height: 50px;
       background: linear-gradient(to bottom, transparent, #0b0c10);
       z-index: 2;
       pointer-events: none;
@@ -335,6 +345,10 @@
       color: #64748b;
       margin-bottom: 12px;
       font-weight: 700;
+      text-align: left;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .synopsis-text {
@@ -505,6 +519,10 @@
       max-width: 1100px;
       margin: 0 auto;
       padding: 80px 40px 0 40px;
+    }
+
+    .content-section.after-banner {
+      padding-top: 34px; /* texte courant à ~60px sous la bannière, aligné Bio/Extrait */
     }
 
     .content-section h2 {
@@ -788,13 +806,20 @@
       }
 
       .video-banner {
+        height: 40vh;
+        min-height: 260px;
+      }
+
+      .video-banner video {
         height: 48vh;
         min-height: 340px;
       }
 
       .banner-title {
-        font-size: 3.4rem;
+        font-size: 2.2rem;
+        font-style: italic;
         letter-spacing: -1px;
+        top: max(24vh, 170px);
       }
 
       .banner-kicker {
@@ -917,10 +942,11 @@
     }
     .reading-text {
       max-width: 680px;
-      margin: 45px auto 0 auto;
-      font-size: 1.13rem;
-      line-height: 1.55;
-      color: #c9cfd6;
+      margin: 0 auto;
+      padding-top: 5px; /* texte courant à 25px sous la bannière, aligné sur la page Bio */
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #94a3b8;
     }
     .reading-text p {
       margin-bottom: 0.45em;
@@ -940,6 +966,19 @@
       font-size: 0.95em;
       line-height: 1.65;
     }
+    .intercom-annonce {
+      font-style: italic;
+      color: #d9cfad;
+      letter-spacing: 0.5px;
+      text-align: left;
+      line-height: 1.35;
+      margin: 1.2em 0;
+    }
+
+    .intercom-annonce p {
+      margin-bottom: 0;
+    }
+
     .drop-cap::first-letter {
       font-size: 3.1em;
       float: left;
@@ -960,6 +999,10 @@
       font-style: italic;
       font-size: 1.05rem;
       margin-bottom: 22px;
+      text-align: left;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
     }
     @media (max-width: 968px) {
       .reading-text { font-size: 1.05rem; line-height: 1.8; }
@@ -1102,6 +1145,12 @@
     @media (max-width: 968px) {
       .nl-popup { bottom: 0; right: 0; left: 0; width: 100%; max-width: none; border-radius: 14px 14px 0 0; }
     }
+
+    /* ===== Standard typographique du site =====
+       Bannière : titre 3.5rem italique / 900 (2.2rem mobile) — ne pas agrandir
+       Textes   : 1.1rem / interligne 1.7 / #94a3b8 / justifié / largeur 680px
+       Après bannière : .after-banner -> texte visible à 80px du bas de bannière
+    */
   </style>
   <!-- Cookies / GDPR: Google Analytics loaded only after consent -->
   <script>
@@ -1155,37 +1204,55 @@
       <li><a href="https://www.instagram.com/storytellise/" target="_blank" rel="noopener" aria-label="Instagram" class="nav-icon">
         <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5"></rect><circle cx="12" cy="12" r="4.2"></circle><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"></circle></svg>
       </a></li>
+      <li><a href="https://www.tiktok.com/@storytellise" target="_blank" rel="noopener" aria-label="TikTok" class="nav-icon">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="transform: translateY(1px);"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.64-.2-1.59.03-3.2.79-4.61 1.15-2.17 3.47-3.68 5.93-3.83 1.44-.05 2.9.26 4.13.95.02-3.38-.01-6.76.02-10.14z"/></svg>
+      </a></li>
       <li><a href="mailto:storytellise@proton.me">Contact</a></li>
     </ul>
   </header>
 
   <!-- Animated banner: the waterfall -->
   <section class="video-banner">
-    <video autoplay muted loop playsinline poster="cascade-flow-20-banner.jpg">
-      <source src="cascade-flow-20-banner.mp4" type="video/mp4">
-    </video>
+    <video id="banner-video" autoplay muted loop playsinline poster="cascade-flow-20-banner.jpg"></video>
     <div class="banner-overlay">
-      <h1 class="banner-title">ScarCity</h1>
-      <div class="banner-kicker">Happiness. Privacy. Health.</div>
-      <div class="banner-kicker-sub">Pick two.</div>
+      <h1 class="banner-title">The Redirection</h1>
     </div>
     <div class="banner-fade"></div>
   </section>
+  <script>
+    // Banner: video only on desktop (static poster on mobile / data-saver / prefers-reduced-motion)
+    (function () {
+      var v = document.getElementById('banner-video');
+      if (!v) return;
+      var skip = window.matchMedia('(max-width: 968px)').matches
+        || window.matchMedia('(prefers-reduced-motion: reduce)').matches
+        || (navigator.connection && navigator.connection.saveData);
+      if (skip) return;
+      var s = document.createElement('source');
+      s.src = 'cascade-flow-20-banner.mp4';
+      s.type = 'video/mp4';
+      v.appendChild(s);
+      v.load();
+    })();
+  </script>
 
   
   <main>
-    <section class="content-section" id="extrait" style="padding-top: 140px;">
+    <section class="content-section after-banner" id="extrait">
       <div class="section-label">Excerpt</div>
-      <h1 class="chapter-title">The Redirection</h1>
-      <div class="chapter-date">Exactly five years earlier – 18 April</div>
       <div class="reading-text">
-        <p class="drop-cap">The seven Terminals were standing in the front row; their family units settled behind them on wobbly, vaguely aligned folding chairs. Tired of his repetitive duties and in a generous mood, the Government Delegate had exceptionally granted entry to anyone who showed up at the ceremony, thus defying the arbitrary safety rule of the Convention, which limited access to a single legal guardian per Terminal.</p>
+        <p class="ind">The seven Terminals were standing in the front row; their family units settled behind them on wobbly, vaguely aligned folding chairs. Tired of his repetitive duties and in a generous mood, the Government Delegate had exceptionally granted entry to anyone who showed up at the ceremony, thus defying the arbitrary safety rule of the Convention, which limited access to a single legal guardian per Terminal.</p>
         <p>As far as he could remember, it was a full hall, a first since he had taken up his <i>jobby</i>, and he was congratulating himself for it.</p>
         <p class="ind">In a wing of the Opéra, that vast windowless room dedicated to Redirections was closer to a cold store than to the once-opulent theatre of yesteryear. Here, no long rows of velvet-upholstered seats or crystal chandeliers. Not a hint either of the crimson carpet one imagined when crossing the cream-coloured leather-padded door. The beige floor tiles and the erratic neon lighting proved that the French capital’s historical heritage had definitively been written off.</p>
         <p>The frequency and number of participants in this imposed event had grown to such an extent over the cycles that the grandiose had given way to the efficient, the cultural to the functional, and the silky tapestries to washable walls.</p>
         <p>Matching the decorum, the weary old man wore an unflattering garment, frayed at the armholes and too wide for his frail body. A jacket customary for official celebrations, but a world away from the radiant red ceremonial costume with thirty-two buttons depicted on the frescoes of the Instructional Centre.</p>
         <p class="ind">“We are gathered in this place to authenticate the Redirection of registered cohort S 18 04, now having reached maturity. In my capacity as representative of Sirap, and by the powers vested in me, I have the honour and duty to facilitate this procedure coinciding with their fifteenth birthday. I remind you that the initial choice of a Terminal of age to select their immediate future is mandatory, strictly personal, and irrevocable. Everyone accepts its finality without remorse or regret. Right. No counter-order received so we shall begin the distribution of notepasses and–”</p>
-        <p style="font-style: italic; color: #d9cfad; letter-spacing: 0.5px; text-indent: 0; text-align: center;">“For your safety,<br />Walk, move, recharge<br />Conserve energy and health.<br />Satisfied or Switched!”</p>
+        <div class="intercom-annonce">
+          <p class="ind">“For your safety,</p>
+          <p class="ind">Walk, move, recharge</p>
+          <p class="ind">Conserve energy and health.</p>
+          <p class="ind">Satisfied or Switched!”</p>
+        </div>
         <p class="ind">The central intercom belched out the monotonous leitmotif droning the precepts laid down by the Conglomerate. Translated into every language, twangy voice included, the message broadcast at fixed hours throughout HemiNor set the rhythm for the Megacities’ inhabitants’ <i>shifts</i> from the moment of their birth.</p>
         <p>Despite the untimely interruption of the solemn speech, the audience complied, accustomed to this thrice-daily refrain. 	Guided by an innate reflex, each person imperceptibly adjusted their position and relaxed their toes to enable optimal contact with the installation hidden beneath the slabs, whose covering concealed a thin plate of superconducting alloy.</p>
         <p>Whilst ensuring the constant charging of their setchip by electromagnetic radiation, the public inductor also took this opportunity to analyse vital data in real time and transmit a full <i>checkup</i>.</p>
@@ -1269,7 +1336,7 @@
 
   <!-- Pied de page -->
   <footer>
-    <p>©2026 storytellise - all rights reserved | <a href="mailto:storytellise@proton.me" class="link-ghost">Contact</a> | <a href="https://www.instagram.com/storytellise/" target="_blank" rel="noopener" class="link-ghost">Instagram</a> | <a href="./mentions.html" class="link-ghost">Legal notice</a></p>
+    <p>©2026 storytellise - all rights reserved | <a href="mailto:storytellise@proton.me" class="link-ghost">Contact</a> | <a href="https://www.instagram.com/storytellise/" target="_blank" rel="noopener" class="link-ghost">Instagram</a> | <a href="https://www.tiktok.com/@storytellise" target="_blank" rel="noopener" class="link-ghost">TikTok</a> | <a href="./mentions.html" class="link-ghost">Legal notice</a></p>
   </footer>
 
   <script>

@@ -116,8 +116,8 @@
     /* Bannière animée */
     .video-banner {
       position: relative;
-      height: 64vh;
-      min-height: 430px;
+      height: 45vh;
+      min-height: 300px;
       overflow: hidden;
       background: #0b0c10;
     }
@@ -127,7 +127,8 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 100%;
+      height: 64vh; /* = bannière complète de la landing : image identique, coupée en bas */
+      min-height: 430px;
       object-fit: cover;
       object-position: center 32%;
     }
@@ -156,7 +157,11 @@
       font-style: italic;
       letter-spacing: 1px;
       text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9), 0 4px 24px rgba(0, 0, 0, 0.6);
-    }
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: calc(max(32vh, 215px) + 34px);
+    }}
 
     .banner-kicker-sub {
       font-size: 1.5rem;
@@ -168,13 +173,18 @@
     }
 
     .banner-title {
-      font-size: 6.5rem;
-      font-weight: 900;
+      font-size: 3.5rem;
+      font-style: italic;
+      font-weight: 400;
       color: #f1f5f9;
       letter-spacing: -3px;
       line-height: 1.05;
-      margin-top: 18px;
       text-shadow: 0 3px 10px rgba(0, 0, 0, 0.9), 0 8px 36px rgba(0, 0, 0, 0.65);
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: max(32vh, 215px); /* aligné sur le centre du titre ScarCity (landing) */
+      transform: translateY(-50%);
     }
 
     .banner-author {
@@ -189,7 +199,7 @@
       bottom: 0;
       left: 0;
       width: 100%;
-      height: 130px;
+      height: 50px;
       background: linear-gradient(to bottom, transparent, #0b0c10);
       z-index: 2;
       pointer-events: none;
@@ -334,6 +344,10 @@
       color: #64748b;
       margin-bottom: 12px;
       font-weight: 700;
+      text-align: left;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .synopsis-text {
@@ -518,6 +532,10 @@
       max-width: 1100px;
       margin: 0 auto;
       padding: 80px 40px 0 40px;
+    }
+
+    .content-section.after-banner {
+      padding-top: 34px; /* texte courant à ~60px sous la bannière, aligné Bio/Extrait */
     }
 
     .content-section h2 {
@@ -801,13 +819,20 @@
       }
 
       .video-banner {
+        height: 40vh;
+        min-height: 260px;
+      }
+
+      .video-banner video {
         height: 48vh;
         min-height: 340px;
       }
 
       .banner-title {
-        font-size: 3.4rem;
+        font-size: 2.2rem;
+        font-style: italic;
         letter-spacing: -1px;
+        top: max(24vh, 170px);
       }
 
       .banner-kicker {
@@ -930,10 +955,11 @@
     }
     .reading-text {
       max-width: 680px;
-      margin: 45px auto 0 auto;
-      font-size: 1.13rem;
-      line-height: 1.55;
-      color: #c9cfd6;
+      margin: 0 auto;
+      padding-top: 5px; /* texte courant à 25px sous la bannière, aligné sur la page Bio */
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #94a3b8;
     }
     .reading-text p {
       margin-bottom: 0.45em;
@@ -987,6 +1013,10 @@
       font-style: italic;
       font-size: 1.05rem;
       margin-bottom: 22px;
+      text-align: left;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
     }
     @media (max-width: 968px) {
       .reading-text { font-size: 1.05rem; line-height: 1.8; }
@@ -1129,6 +1159,12 @@
     @media (max-width: 968px) {
       .nl-popup { bottom: 0; right: 0; left: 0; width: 100%; max-width: none; border-radius: 14px 14px 0 0; }
     }
+
+    /* ===== Standard typographique du site =====
+       Bannière : titre 3.5rem italique / 900 (2.2rem mobile) — ne pas agrandir
+       Textes   : 1.1rem / interligne 1.7 / #94a3b8 / justifié / largeur 680px
+       Après bannière : .after-banner -> texte visible à 80px du bas de bannière
+    */
   </style>
   <!-- Cookies / RGPD : Google Analytics chargé uniquement après consentement -->
   <script>
@@ -1182,29 +1218,42 @@
       <li><a href="https://www.instagram.com/storytellise/" target="_blank" rel="noopener" aria-label="Instagram" class="nav-icon">
         <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5"></rect><circle cx="12" cy="12" r="4.2"></circle><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"></circle></svg>
       </a></li>
+      <li><a href="https://www.tiktok.com/@storytellise" target="_blank" rel="noopener" aria-label="TikTok" class="nav-icon">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="transform: translateY(1px);"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.64-.2-1.59.03-3.2.79-4.61 1.15-2.17 3.47-3.68 5.93-3.83 1.44-.05 2.9.26 4.13.95.02-3.38-.01-6.76.02-10.14z"/></svg>
+      </a></li>
       <li><a href="mailto:storytellise@proton.me">Contact</a></li>
     </ul>
   </header>
 
   <!-- Bannière animée : la cascade -->
   <section class="video-banner">
-    <video autoplay muted loop playsinline poster="cascade-flow-20-banner.jpg">
-      <source src="cascade-flow-20-banner.mp4" type="video/mp4">
-    </video>
+    <video id="banner-video" autoplay muted loop playsinline poster="cascade-flow-20-banner.jpg"></video>
     <div class="banner-overlay">
-      <h1 class="banner-title">ScarCity</h1>
-      <div class="banner-kicker">Bonheur. Santé. Vie privée.</div>
-      <div class="banner-kicker-sub">Choisissez-en deux.</div>
+      <h1 class="banner-title">La Redirection</h1>
     </div>
     <div class="banner-fade"></div>
   </section>
+  <script>
+    // Bannière : vidéo uniquement sur desktop (poster statique sur mobile / connexion éco / prefers-reduced-motion)
+    (function () {
+      var v = document.getElementById('banner-video');
+      if (!v) return;
+      var skip = window.matchMedia('(max-width: 968px)').matches
+        || window.matchMedia('(prefers-reduced-motion: reduce)').matches
+        || (navigator.connection && navigator.connection.saveData);
+      if (skip) return;
+      var s = document.createElement('source');
+      s.src = 'cascade-flow-20-banner.mp4';
+      s.type = 'video/mp4';
+      v.appendChild(s);
+      v.load();
+    })();
+  </script>
 
   
   <main>
-    <section class="content-section" id="extrait" style="padding-top: 140px;">
+    <section class="content-section after-banner" id="extrait">
       <div class="section-label">Extrait</div>
-      <h1 class="chapter-title">La Redirection</h1>
-      <div class="chapter-date">Exactement cinq ans plus tôt - 18 avril</div>
       <div class="reading-text">
         <p class="ind">Les sept Terminaux se tenaient debout au premier rang, leurs unités familiales installées derrière eux sur des chaises pliantes bancales et vaguement alignées. Lassé par ses obligations répétitives et d’humeur généreuse, le Délégué gouvernemental avait exceptionnellement accordé l’entrée à toute personne qui se présentait à la cérémonie, bravant ainsi l’arbitraire règle de sécurité de la Convention qui en limitait l’accès à un seul accompagnant légal par Terminal.</p>
         <p>De mémoire, on affichait salle comble pour la première fois depuis sa prise de <i>jobby</i> et il s’en félicitait.</p>
@@ -1304,7 +1353,7 @@
 
   <!-- Pied de page -->
   <footer>
-    <p>©2026 storytellise - Tous droits réservés | <a href="mailto:storytellise@proton.me" class="link-ghost">Contact</a> | <a href="https://www.instagram.com/storytellise/" target="_blank" rel="noopener" class="link-ghost">Instagram</a> | <a href="./mentions.html" class="link-ghost">Mentions légales</a></p>
+    <p>©2026 storytellise - Tous droits réservés | <a href="mailto:storytellise@proton.me" class="link-ghost">Contact</a> | <a href="https://www.instagram.com/storytellise/" target="_blank" rel="noopener" class="link-ghost">Instagram</a> | <a href="https://www.tiktok.com/@storytellise" target="_blank" rel="noopener" class="link-ghost">TikTok</a> | <a href="./mentions.html" class="link-ghost">Mentions légales</a></p>
   </footer>
 
   <script>

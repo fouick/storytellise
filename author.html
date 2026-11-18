@@ -26,6 +26,7 @@
   <link rel="alternate" hreflang="fr" href="https://storytellise.com/scarcity-fr.html">
   <link rel="alternate" hreflang="x-default" href="https://storytellise.com/index.html">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230b0c10'/%3E%3Ctext x='32' y='45' font-family='Arial' font-size='36' font-weight='bold' fill='%23bdb292' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+  <link rel="preload" as="image" href="cascade-flow-20-banner.jpg">
 
   <!-- Structured data: Book -->
   <script type="application/ld+json">
@@ -114,6 +115,76 @@
       text-decoration: none;
     }
 
+
+    /* Bannière animée */
+    .video-banner {
+      position: relative;
+      height: 45vh;
+      min-height: 300px;
+      overflow: hidden;
+      background: #0b0c10;
+    }
+
+    .video-banner video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 64vh; /* = bannière complète de la landing : image identique, coupée en bas */
+      min-height: 430px;
+      object-fit: cover;
+      object-position: center 32%;
+    }
+
+    .banner-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background:
+        linear-gradient(to bottom, rgba(11, 12, 16, 0.35) 0%, transparent 22%, transparent 72%, rgba(11, 12, 16, 0.45) 100%),
+        radial-gradient(ellipse 75% 65% at 50% 55%, rgba(11, 12, 16, 0.62) 0%, rgba(11, 12, 16, 0.34) 55%, rgba(11, 12, 16, 0.08) 100%);
+      z-index: 1;
+      padding: 0 25px;
+    }
+
+    .banner-title {
+      font-size: 3.5rem;
+      font-weight: 400;
+      color: #f1f5f9;
+      letter-spacing: -3px;
+      line-height: 1.05;
+      text-shadow: 0 3px 10px rgba(0, 0, 0, 0.9), 0 8px 36px rgba(0, 0, 0, 0.65);
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: max(32vh, 215px); /* aligné sur le centre du titre ScarCity (landing) */
+      transform: translateY(-50%);
+    }
+
+    .banner-fade {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 50px;
+      background: linear-gradient(to bottom, transparent, #0b0c10);
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .video-banner video {
+        display: none;
+      }
+    }
+
     .nav-links {
       display: flex;
       align-items: center;
@@ -172,6 +243,18 @@
     .hero-right {
       flex: 1.2;
       text-align: justify;
+    }
+
+    .author-bio-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    .author-bio-text p.grp {
+      margin-top: 2.2em;
+    }
+
+    .author-bio-text p.grp:first-child {
+      margin-top: 0;
     }
 
     /* Présentation de la couverture */
@@ -311,6 +394,19 @@
       box-shadow: 0 8px 25px rgba(255, 153, 0, 0.4);
     }
 
+    .btn-excerpt {
+      background: #0b0c10;
+      color: #4da9d3;
+      box-shadow: 0 4px 20px rgba(77, 169, 211, 0.25);
+    }
+
+    .btn-excerpt:hover {
+      background: #4da9d3;
+      color: #0b0c10;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(77, 169, 211, 0.4);
+    }
+
     .btn-kobo {
       background: #0b0c10;
       color: #bd1a1ad2;
@@ -419,6 +515,10 @@
       padding: 80px 40px 0 40px;
     }
 
+    .content-section.after-banner {
+      padding-top: 54px; /* texte courant à ~60px sous la bannière, aligné Bio/Extrait */
+    }
+
     .content-section h2 {
       font-size: 2rem;
       color: #e2e8f0;
@@ -428,28 +528,28 @@
 
     /* Striking quote */
     .quote-band {
-      max-width: 900px;
+      max-width: 800px;
       margin: 0 auto;
-      padding: 90px 40px 0 40px;
+      padding: 30px 40px 0 40px;
       text-align: center;
     }
 
     blockquote.big-quote {
       font-size: 1.7rem;
-      line-height: 1.55;
-      color: #e2e8f0;
+      line-height: 1.2;
+      color: #bdb292;
       font-style: italic;
       position: relative;
     }
 
     blockquote.big-quote::before {
-      content: '\201C';
+      content: '';
       display: block;
-      font-size: 5rem;
-      line-height: 1;
-      color: #1f5e71;
-      font-style: normal;
-      margin-bottom: 10px;
+      width: 80px;
+      height: 4px;
+      margin: 0 auto 30px auto;
+      background: #1f5e71;
+      border-radius: 2px;
     }
 
     blockquote.big-quote footer {
@@ -561,8 +661,11 @@
 
     .author-bio-text p {
       color: #94a3b8;
+      font-size: 1.1rem;
       line-height: 1.7;
       margin-bottom: 12px;
+  
+      text-align: justify;
     }
 
     .author-bio-text .bio-sign {
@@ -696,6 +799,21 @@
 
       .nav-logo {
         display: none;
+      }
+
+      .video-banner {
+        height: 40vh;
+        min-height: 260px;
+      }
+
+      .video-banner video {
+        height: 48vh;
+        min-height: 340px;
+      }
+
+      .banner-title {
+        font-size: 2.2rem;
+        top: max(24vh, 170px);
       }
 
       .hero-container {
@@ -925,6 +1043,12 @@
     @media (max-width: 968px) {
       .nl-popup { bottom: 0; right: 0; left: 0; width: 100%; max-width: none; border-radius: 14px 14px 0 0; }
     }
+
+    /* ===== Standard typographique du site =====
+       Bannière : titre 3.5rem italique / 900 (2.2rem mobile) — ne pas agrandir
+       Textes   : 1.1rem / interligne 1.7 / #94a3b8 / justifié / largeur 680px
+       Après bannière : .after-banner -> texte visible à 80px du bas de bannière
+    */
   </style>
   <!-- Cookies / GDPR: Google Analytics loaded only after consent -->
   <script>
@@ -978,42 +1102,70 @@
       <li><a href="https://www.instagram.com/storytellise/" target="_blank" rel="noopener" aria-label="Instagram" class="nav-icon">
         <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5"></rect><circle cx="12" cy="12" r="4.2"></circle><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"></circle></svg>
       </a></li>
+      <li><a href="https://www.tiktok.com/@storytellise" target="_blank" rel="noopener" aria-label="TikTok" class="nav-icon">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="transform: translateY(1px);"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.64-.2-1.59.03-3.2.79-4.61 1.15-2.17 3.47-3.68 5.93-3.83 1.44-.05 2.9.26 4.13.95.02-3.38-.01-6.76.02-10.14z"/></svg>
+      </a></li>
       <li><a href="mailto:storytellise@proton.me">Contact</a></li>
     </ul>
   </header>
 
   
+  <!-- Animated banner: the waterfall -->
+  <section class="video-banner">
+    <video id="banner-video" autoplay muted loop playsinline poster="cascade-flow-20-banner.jpg"></video>
+    <div class="banner-overlay">
+      <h1 class="banner-title">Behind the keyboard</h1>
+    </div>
+    <div class="banner-fade"></div>
+  </section>
+  <script>
+    // Banner: video only on desktop (static poster on mobile / data-saver / prefers-reduced-motion)
+    (function () {
+      var v = document.getElementById('banner-video');
+      if (!v) return;
+      var skip = window.matchMedia('(max-width: 968px)').matches
+        || window.matchMedia('(prefers-reduced-motion: reduce)').matches
+        || (navigator.connection && navigator.connection.saveData);
+      if (skip) return;
+      var s = document.createElement('source');
+      s.src = 'cascade-flow-20-banner.mp4';
+      s.type = 'video/mp4';
+      v.appendChild(s);
+      v.load();
+    })();
+  </script>
   <main>
-    <section class="content-section reveal" id="auteur" style="padding-top: 140px;">
-      <div class="section-label">Behind the pen name</div>
-      <h1 style="font-size: 2.6rem; color: #e2e8f0; margin-bottom: 35px; letter-spacing: -0.5px;">E.F. Wick</h1>
-      <div class="author-bio" style="display: block; padding: 45px 50px;">
-        <div class="author-bio-text" style="max-width: 720px; margin: 0 auto;">
-          <p>A self-taught author and publisher, E.F. Wick developed a passion at a very young age for dystopian worlds, intertwined destinies, conspiracies and the environmental risks inherent in new technologies.</p>
-          <p>Their personal adventures and setbacks in SaaS startups and the Entertainment industry inspired them to write their first science fiction novel, ScarCity. In this first volume of the Generation Silix saga, the line between reality and imagination is tenuous… and grows blurrier with each passing day.</p>
-          <p>The internet, mobile phones, social media and streaming services emerged in Wick’s teenage years, playing a central role in their daily life. Dreaming of being an architect, a pilot or even a cybersecurity engineer, Wick followed a STEM path, enrolled in a competitive prep class for Computer Science, switched to Fine Arts and completed their educational journey with a Masters in Advertising and Art Direction. While funding their studies by selling phone plans, they discovered the rules of the working world.</p>
-          <p>After a few years of stagnation at Unemployed Graphic Designer level, Wick moved on to Sales Assistant at a famous American film magazine, then turned into a Trainer in the telecoms sector, eventually rising to Head of Learning &amp; Development for a global HR software company. Video meetings and staggered working hours soon became their new reality.</p>
-          <p>Without ever parting with their resilience nor their (sometimes dark) sense of humour, E.F. Wick infuses ScarCity with their professional background and eclectic cultural heritage.</p>
-          <p>A native French citizen, the bilingual author adapted their original text and translated it into English a few months after its initial self-publication in France.</p>
+    <section class="content-section after-banner" id="auteur">
+      <div class="author-bio" style="display: block; padding: 4px 50px 10px 50px;">
+        <div class="author-bio-text" style="max-width: 680px; margin: 0 auto;">
+          <p class="grp">A self-taught author and publisher, E.F. Wick developed a passion at a very young age for dystopian worlds, intertwined destinies, conspiracies and the environmental risks inherent in new technologies.</p>
+          <p>Their personal adventures and setbacks in SaaS startups and the Entertainment industry inspired them to write their first science fiction novel, <em>ScarCity</em>.</p>
+          <p>In this first volume of the <em>Generation Silix</em> saga, the line between reality and imagination is tenuous… and grows blurrier with each passing day.</p>
+          <p class="grp">The internet, mobile phones, social media and streaming services emerged in Wick’s teenage years, playing a central role in their daily life.</p>
+          <p>Dreaming of being an architect, a pilot or even a cybersecurity engineer, Wick followed a STEM path, enrolled in a competitive prep class for Computer Science, switched to Fine Arts and completed their educational journey with a Masters in Advertising and Art Direction.</p>
+          <p>While funding their studies by selling phone plans, they discovered the rules of the working world.</p>
+          <p>After a few years of stagnation at <em>Unemployed Graphic Designer</em> level, Wick moved on to Sales Assistant at a famous American film magazine, then turned into a Trainer in the telecoms sector, eventually rising to Head of Learning &amp; Development for a global HR software company.</p>
+          <p>Video meetings and staggered working hours soon became their new reality.</p>
+          <p class="grp">Without ever parting with their resilience nor their (sometimes dark) sense of humour, E.F. Wick infuses <em>ScarCity</em> with their professional background and eclectic cultural heritage.</p>
+          <p class="grp">A native French citizen, the bilingual author adapted their original text and translated it into English a few months after its initial self-publication in France.</p>
         </div>
       </div>
     </section>
 
     <div class="quote-band reveal">
       <blockquote class="big-quote">
-        “Satisfaction guaranteed!” : All of E.F. Wick’s texts are guaranteed to be 100% human-generated and written in LibreOffice, without the assist of any AI. Such technology does, however, play a prominent role in their narrative.
-        <footer>E.F. Wick - for real</footer>
+        <b>“Satisfaction guaranteed!”</b><br /><span style="font-size: 1.3rem; line-height: 1.25;">All of E.F. Wick’s texts are guaranteed to be 100% human-generated and written in LibreOffice without the assist of any AI, despite such technology playing a prominent role in their narrative.</span>
       </blockquote>
     </div>
 
-    <div class="content-section reveal" style="text-align: center; padding-bottom: 80px;">
-      <a href="./index.html" class="btn-action btn-kobo">← Back to ScarCity</a>
+    <div class="content-section reveal" style="text-align: center; padding: 30px 40px 80px 40px;">
+      <a href="./index.html" class="btn-action btn-excerpt" style="font-weight: 400;">← Back to ScarCity</a>
     </div>
   </main>
 
   <!-- Pied de page -->
   <footer>
-    <p>©2026 storytellise - all rights reserved | <a href="mailto:storytellise@proton.me" class="link-ghost">Contact</a> | <a href="https://www.instagram.com/storytellise/" target="_blank" rel="noopener" class="link-ghost">Instagram</a> | <a href="./mentions.html" class="link-ghost">Legal notice</a></p>
+    <p>©2026 storytellise - all rights reserved | <a href="mailto:storytellise@proton.me" class="link-ghost">Contact</a> | <a href="https://www.instagram.com/storytellise/" target="_blank" rel="noopener" class="link-ghost">Instagram</a> | <a href="https://www.tiktok.com/@storytellise" target="_blank" rel="noopener" class="link-ghost">TikTok</a> | <a href="./mentions.html" class="link-ghost">Legal notice</a></p>
   </footer>
 
   <script>
