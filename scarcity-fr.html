@@ -696,7 +696,6 @@
       margin-bottom: 10px;
     }
 
-    .vibe-card p,
     .series-card p {
       text-align: justify;
     }
@@ -1022,6 +1021,10 @@
 
       .ligne-m {
         display: block;
+      }
+
+      .br-m {
+        display: none; /* la ligne vide venait du cumul bloc + br */
       }
 
       .banner-kicker {
@@ -1423,7 +1426,7 @@ Bienvenue dans l'Ère Mun !</p>
     <!-- Citation choc -->
     <div class="quote-band reveal">
       <blockquote class="big-quote">
-        Pour votre sécurité, <span class="ligne-m">marchez, bougez, rechargez.</span><br /><span style="color:#bdb292">Conservez énergie et santé.</span>
+        Pour votre sécurité, <span class="ligne-m">Marchez, bougez, rechargez.</span><br class="br-m" /><span style="color:#bdb292">Conservez énergie et santé.</span>
       </blockquote>
     </div>
 
@@ -1561,7 +1564,7 @@ Bienvenue dans l'Ère Mun !</p>
   <div class="nl-popup" id="nl-popup">
     <button class="nl-close" onclick="nlClose()" aria-label="Fermer">&#10005;</button>
     <h3>Nouvelles de l'HemiNor</h3>
-    <p>Coulisses d'écriture, date de sortie du <strong>Tome 2</strong> et actualités de la saga, une fois par mois MAX, dans votre boîte mail. Pas de spam, désinscription en un clic.</p>
+    <p>Des news croustillantes, une fois par mois MAX. Zéro spam, promis ! <strong>Satisfaction garantie !</strong></p>
     <form onsubmit="return nlSubmit(event)">
       <input type="email" id="nl-email" placeholder="hello@heminor.com" required />
       <button type="submit">Donnez-moi des nouvelles !</button>

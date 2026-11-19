@@ -696,7 +696,6 @@
       margin-bottom: 10px;
     }
 
-    .vibe-card p,
     .series-card p {
       text-align: justify;
     }
@@ -1022,6 +1021,10 @@
 
       .ligne-m {
         display: block;
+      }
+
+      .br-m {
+        display: none; /* la ligne vide venait du cumul bloc + br */
       }
 
       .banner-kicker {
@@ -1429,7 +1432,7 @@ Welcome to the Mun Era!</p>
     <!-- Striking quote -->
     <div class="quote-band reveal">
       <blockquote class="big-quote">
-        For your safety, <span class="ligne-m">walk, move, recharge.</span><br />
+        For your safety, <span class="ligne-m">Walk, move, recharge.</span><br class="br-m" />
         <span style="color:#bdb292">Conserve energy and health.</span>
       </blockquote>
     </div>
@@ -1568,7 +1571,7 @@ Welcome to the Mun Era!</p>
   <div class="nl-popup" id="nl-popup">
     <button class="nl-close" onclick="nlClose()" aria-label="Fermer">&#10005;</button>
     <h3>News from HemiNor</h3>
-    <p>Behind-the-scenes of the writing, <strong>Volume 2</strong>'s release date and saga news, once a month MAX, in your inbox. No spam, one-click unsubscribe.</p>
+    <p>Tasty news, once a month MAX. Zero spam, promised! <strong>Satisfaction guaranteed!</strong></p>
     <form onsubmit="return nlSubmit(event)">
       <input type="email" id="nl-email" placeholder="hello@heminor.com" required />
       <button type="submit">Keep me posted!</button>
