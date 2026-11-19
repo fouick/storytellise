@@ -221,6 +221,15 @@
       color: #bdb292;
     }
 
+    .burger-group {
+      display: flex;
+      align-items: center;
+    }
+
+    .lang-flag {
+      margin-left: 15px; /* meme espacement qu'entre instagram et tiktok */
+    }
+
     .nav-links {
       display: flex;
       align-items: center;
@@ -1250,10 +1259,12 @@
 
   <!-- En-tête / Navigation -->
   <header>
+    <div class="burger-group">
     <button class="burger" onclick="burgerToggle()" aria-label="Menu" aria-expanded="false">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
     </button>
     <a href="./extrait.html" class="nav-icon lang-flag" aria-label="Version française" title="Version française"><svg width="21" height="14" viewBox="0 0 21 14" aria-hidden="true" style="border-radius: 2px; display: block;"><rect width="7" height="14" fill="#0055A4"></rect><rect x="7" width="7" height="14" fill="#FFFFFF"></rect><rect x="14" width="7" height="14" fill="#EF4135"></rect></svg></a>
+    </div>
     <ul class="nav-links nav-left">
       <li><a href="./index.html">ScarCity</a></li>
       <li><a href="#" class="active">Excerpt</a></li>
