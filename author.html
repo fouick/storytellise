@@ -268,7 +268,11 @@
     }
 
     .author-bio-text p.grp {
-      text-indent: 1.5em;
+      margin-top: 2.2em;
+    }
+
+    .author-bio-text p.grp:first-child {
+      margin-top: 0;
     }
 
     /* Présentation de la couverture */
@@ -544,7 +548,7 @@
     .quote-band {
       max-width: 800px;
       margin: 0 auto;
-      padding: 30px 40px 0 40px;
+      padding: 4px 40px 0 40px; /* espace au-dessus de la barre = espace en dessous (30px) */
       text-align: center;
     }
 
@@ -954,6 +958,11 @@
 
       blockquote.big-quote {
         font-size: 1.25rem;
+        text-align: justify;
+      }
+
+      blockquote.big-quote span {
+        font-size: 1rem !important; /* texte jaune = taille du texte courant */
       }
 
       .specs-grid {
@@ -981,6 +990,11 @@
       .author-bio-text {
         width: 100%;
         text-align: justify;
+      }
+
+      .author-bio-text p {
+        font-size: 1rem;
+        line-height: 1.8;
       }
 
       .author-bio-text p {
