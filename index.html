@@ -124,16 +124,6 @@
       background: url('cascade-flow-20-banner.jpg') center 32% / cover no-repeat #0b0c10; /* image de secours : visible même sans video (mobile, data-saver, reduced-motion) */
     }
 
-    .video-banner video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 64vh;
-      min-height: 430px;
-      object-fit: cover;
-      object-position: center 32%;
-    }
 
     .banner-overlay {
       position: absolute;
@@ -217,11 +207,6 @@
       pointer-events: none;
     }
 
-    @media (prefers-reduced-motion: reduce) {
-      .video-banner video {
-        display: none;
-      }
-    }
 
     .nav-links {
       display: flex;
@@ -923,11 +908,6 @@
         min-height: 320px;
       }
 
-      .video-banner video {
-        height: 48vh;
-        min-height: 340px;
-      }
-
       .banner-kicker {
         top: calc(max(20vh, 130px) + 66px);
       }
@@ -1259,7 +1239,6 @@
 
   <!-- Animated banner: the waterfall -->
   <section class="video-banner">
-    <video id="banner-video" autoplay muted loop playsinline poster="cascade-flow-20-banner.jpg"></video>
     <div class="banner-overlay">
       <h1 class="banner-title">ScarCity</h1>
       <div class="banner-kicker">Happiness. Privacy. Health.</div>
@@ -1267,22 +1246,6 @@
     </div>
     <div class="banner-fade"></div>
   </section>
-  <script>
-    // Banner: video only on desktop (static poster on mobile / data-saver / prefers-reduced-motion)
-    (function () {
-      var v = document.getElementById('banner-video');
-      if (!v) return;
-      var skip = window.matchMedia('(max-width: 968px)').matches
-        || window.matchMedia('(prefers-reduced-motion: reduce)').matches
-        || (navigator.connection && navigator.connection.saveData);
-      if (skip) return;
-      var s = document.createElement('source');
-      s.src = 'cascade-flow-20-banner.mp4';
-      s.type = 'video/mp4';
-      v.appendChild(s);
-      v.load();
-    })();
-  </script>
 
   <main>
     <!-- Section Principale (Héros) -->

@@ -178,11 +178,6 @@
       pointer-events: none;
     }
 
-    @media (prefers-reduced-motion: reduce) {
-      .video-banner video {
-        display: none;
-      }
-    }
 
     .nav-links {
       display: flex;
@@ -820,11 +815,6 @@
         min-height: 260px;
       }
 
-      .video-banner video {
-        height: 48vh;
-        min-height: 340px;
-      }
-
       .banner-title {
         font-size: 2.2rem;
         top: max(24vh, 170px);
@@ -1128,28 +1118,11 @@
   
   <!-- Bannière animée : la cascade -->
   <section class="video-banner">
-    <video id="banner-video" autoplay muted loop playsinline poster="cascade-flow-20-banner.jpg"></video>
     <div class="banner-overlay">
       <h1 class="banner-title">Derrière le clavier</h1>
     </div>
     <div class="banner-fade"></div>
   </section>
-  <script>
-    // Bannière : vidéo uniquement sur desktop (poster statique sur mobile / connexion éco / prefers-reduced-motion)
-    (function () {
-      var v = document.getElementById('banner-video');
-      if (!v) return;
-      var skip = window.matchMedia('(max-width: 968px)').matches
-        || window.matchMedia('(prefers-reduced-motion: reduce)').matches
-        || (navigator.connection && navigator.connection.saveData);
-      if (skip) return;
-      var s = document.createElement('source');
-      s.src = 'cascade-flow-20-banner.mp4';
-      s.type = 'video/mp4';
-      v.appendChild(s);
-      v.load();
-    })();
-  </script>
   <main>
     <section class="content-section after-banner" id="auteur">
       <div class="author-bio" style="display: block; padding: 4px 50px 10px 50px;">
