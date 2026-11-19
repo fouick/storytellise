@@ -109,7 +109,7 @@
       left: 50%;
       transform: translateX(-50%);
       font-size: 1.5rem;
-      font-weight: 600;
+      font-weight: 500; /* meme graisse que la version mobile */
       letter-spacing: -1px;
       color: #bdb292;
       text-decoration: none;
@@ -228,7 +228,7 @@
     }
 
     .lang-flag {
-      margin-left: 4px;
+      margin-left: 15px; /* meme espacement que les icones */
     }
 
     .nav-links {
@@ -985,7 +985,11 @@
       }
 
       .lang-flag {
-        margin-left: 15px; /* espacement identique aux icones de droite */
+        position: absolute;
+        left: 58px;
+        top: 50%;
+        transform: translateY(-50%);
+        margin: 0; /* a cote du burger en mobile */
       }
 
       .nav-right {
@@ -1352,7 +1356,6 @@
     <button class="burger" onclick="burgerToggle()" aria-label="Menu" aria-expanded="false">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
     </button>
-    <a href="./scarcity-fr.html" class="nav-icon lang-flag" aria-label="Version française" title="Version française"><svg width="18" height="12" viewBox="0 0 21 14" aria-hidden="true" style="border-radius: 2px; display: block;"><rect width="7" height="14" fill="#0055A4"></rect><rect x="7" width="7" height="14" fill="#FFFFFF"></rect><rect x="14" width="7" height="14" fill="#EF4135"></rect></svg></a>
     </div>
     <ul class="nav-links nav-left">
       <li><a href="#" class="active">ScarCity</a></li>
@@ -1362,6 +1365,7 @@
     </ul>
     <a href="#" class="nav-logo">E.F. Wick</a>
     <ul class="nav-links nav-right">
+      <li><a href="./scarcity-fr.html" class="nav-icon lang-flag" aria-label="Version française" title="Version française"><svg width="18" height="12" viewBox="0 0 21 14" aria-hidden="true" style="border-radius: 2px; display: block;"><rect width="7" height="14" fill="#0055A4"></rect><rect x="7" width="7" height="14" fill="#FFFFFF"></rect><rect x="14" width="7" height="14" fill="#EF4135"></rect></svg></a></li>
       <li><a href="https://www.instagram.com/storytellise/" target="_blank" rel="noopener" aria-label="Instagram" class="nav-icon">
         <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5"></rect><circle cx="12" cy="12" r="4.2"></circle><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"></circle></svg>
       </a></li>
