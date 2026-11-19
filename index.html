@@ -208,6 +208,20 @@
     }
 
 
+    .burger {
+      display: none;
+      background: none;
+      border: none;
+      color: #94a3b8;
+      cursor: pointer;
+      padding: 4px;
+      margin-right: 10px;
+    }
+
+    .burger:hover {
+      color: #bdb292;
+    }
+
     .nav-links {
       display: flex;
       align-items: center;
@@ -899,8 +913,61 @@
         padding: 20px 5%;
       }
 
-      .nav-logo {
+      .burger {
+        display: flex;
+        align-items: center;
+      }
+
+      .nav-left {
         display: none;
+      }
+
+      .nav-left.open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 52px;
+        left: 0;
+        right: 0;
+        background: rgba(15, 17, 23, 0.98);
+        backdrop-filter: blur(10px);
+        padding: 6px 0 10px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        z-index: 99;
+      }
+
+      .nav-left.open li a {
+        display: block;
+        padding: 13px 25px;
+        margin: 0;
+        font-size: 1rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .nav-left.open li:first-child a {
+        border-top: none;
+      }
+
+      .nav-logo {
+        display: block;
+        position: static;
+        transform: none; /* E.F. Wick centre entre le burger et les icones */
+      }
+
+      .nav-right {
+        align-items: center;
+      }
+
+      .nav-right li {
+        display: flex;
+        align-items: center;
+      }
+
+      .nav-right svg,
+      .nav-icon svg,
+      .burger svg {
+        transform: none;
+        vertical-align: middle;
       }
 
       .video-banner {
@@ -914,6 +981,7 @@
 
       .banner-kicker-sub {
         top: calc(max(20vh, 130px) + 100px);
+        transform: translateX(0); /* recentre le sous-titre sur mobile */
       }
 
       .banner-title {
@@ -1006,7 +1074,7 @@
       }
 
       .specs-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
       }
 
       .vibes-grid,
@@ -1018,7 +1086,22 @@
         flex-direction: column;
         align-items: center;
         text-align: center;
-        padding: 30px 25px;
+        padding: 25px;
+      }
+
+      .author-monogram {
+        width: 78px;
+        height: 78px;
+        font-size: 1.5rem;
+      }
+
+      .author-bio-text {
+        width: 100%;
+        text-align: justify;
+      }
+
+      .author-bio-text p {
+        text-align: justify;
       }
 
       .newsletter-band {
@@ -1217,6 +1300,9 @@
 
   <!-- En-tête / Navigation -->
   <header>
+    <button class="burger" onclick="burgerToggle()" aria-label="Menu" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+    </button>
     <ul class="nav-links nav-left">
       <li><a href="#" class="active">ScarCity</a></li>
       <li><a href="./excerpt.html">Excerpt</a></li>
@@ -1592,6 +1678,21 @@ Welcome to the Mun Era!</p>
     })();
   </script>
 
+  <script>
+    function burgerToggle() {
+      var m = document.querySelector('.nav-left');
+      if (!m) return;
+      var open = m.classList.toggle('open');
+      var b = document.querySelector('.burger');
+      if (b) b.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    document.querySelectorAll('.nav-left a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        var m = document.querySelector('.nav-left');
+        if (m) m.classList.remove('open');
+      });
+    });
+  </script>
 </body>
 
 </html>

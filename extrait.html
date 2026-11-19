@@ -206,6 +206,20 @@
     }
 
 
+    .burger {
+      display: none;
+      background: none;
+      border: none;
+      color: #94a3b8;
+      cursor: pointer;
+      padding: 4px;
+      margin-right: 10px;
+    }
+
+    .burger:hover {
+      color: #bdb292;
+    }
+
     .nav-links {
       display: flex;
       align-items: center;
@@ -809,8 +823,61 @@
         padding: 20px 5%;
       }
 
-      .nav-logo {
+      .burger {
+        display: flex;
+        align-items: center;
+      }
+
+      .nav-left {
         display: none;
+      }
+
+      .nav-left.open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 52px;
+        left: 0;
+        right: 0;
+        background: rgba(15, 17, 23, 0.98);
+        backdrop-filter: blur(10px);
+        padding: 6px 0 10px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        z-index: 99;
+      }
+
+      .nav-left.open li a {
+        display: block;
+        padding: 13px 25px;
+        margin: 0;
+        font-size: 1rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .nav-left.open li:first-child a {
+        border-top: none;
+      }
+
+      .nav-logo {
+        display: block;
+        position: static;
+        transform: none; /* E.F. Wick centre entre le burger et les icones */
+      }
+
+      .nav-right {
+        align-items: center;
+      }
+
+      .nav-right li {
+        display: flex;
+        align-items: center;
+      }
+
+      .nav-right svg,
+      .nav-icon svg,
+      .burger svg {
+        transform: none;
+        vertical-align: middle;
       }
 
       .video-banner {
@@ -1197,6 +1264,9 @@
 
   <!-- En-tête / Navigation -->
   <header>
+    <button class="burger" onclick="burgerToggle()" aria-label="Menu" aria-expanded="false">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+    </button>
     <ul class="nav-links nav-left">
       <li><a href="./scarcity-fr.html">ScarCity</a></li>
       <li><a href="#" class="active">Extrait</a></li>
@@ -1444,6 +1514,21 @@
     })();
   </script>
 
+  <script>
+    function burgerToggle() {
+      var m = document.querySelector('.nav-left');
+      if (!m) return;
+      var open = m.classList.toggle('open');
+      var b = document.querySelector('.burger');
+      if (b) b.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    document.querySelectorAll('.nav-left a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        var m = document.querySelector('.nav-left');
+        if (m) m.classList.remove('open');
+      });
+    });
+  </script>
 </body>
 
 </html>
