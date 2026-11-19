@@ -200,7 +200,7 @@
     }
 
     .lang-flag {
-      margin-left: 15px; /* meme espacement qu'entre instagram et tiktok */
+      margin-left: 8px;
     }
 
     .nav-links {
@@ -848,8 +848,19 @@
 
       .nav-logo {
         display: block;
-        position: static;
-        transform: none; /* E.F. Wick centre entre le burger et les icones */
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%); /* logo centre, items repartis sur toute la largeur */
+      }
+
+      .burger {
+        padding: 0 4px;
+        margin-right: 0;
+      }
+
+      .lang-flag {
+        margin-left: 4px; /* drapeau rapproche du burger */
       }
 
       .nav-right {
@@ -1172,7 +1183,7 @@
     <button class="burger" onclick="burgerToggle()" aria-label="Menu" aria-expanded="false">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
     </button>
-    <a href="./auteur.html" class="nav-icon lang-flag" aria-label="Version française" title="Version française"><svg width="21" height="14" viewBox="0 0 21 14" aria-hidden="true" style="border-radius: 2px; display: block;"><rect width="7" height="14" fill="#0055A4"></rect><rect x="7" width="7" height="14" fill="#FFFFFF"></rect><rect x="14" width="7" height="14" fill="#EF4135"></rect></svg></a>
+    <a href="./auteur.html" class="nav-icon lang-flag" aria-label="Version française" title="Version française"><svg width="18" height="12" viewBox="0 0 21 14" aria-hidden="true" style="border-radius: 2px; display: block;"><rect width="7" height="14" fill="#0055A4"></rect><rect x="7" width="7" height="14" fill="#FFFFFF"></rect><rect x="14" width="7" height="14" fill="#EF4135"></rect></svg></a>
     </div>
     <ul class="nav-links nav-left">
       <li><a href="./index.html">ScarCity</a></li>

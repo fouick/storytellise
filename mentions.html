@@ -138,7 +138,7 @@
     }
 
     .lang-flag {
-      margin-left: 15px; /* meme espacement qu'entre instagram et tiktok */
+      margin-left: 8px;
     }
 
     .nav-links {
@@ -776,8 +776,19 @@
 
       .nav-logo {
         display: block;
-        position: static;
-        transform: none; /* E.F. Wick centre entre le burger et les icones */
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%); /* logo centre, items repartis sur toute la largeur */
+      }
+
+      .burger {
+        padding: 0 4px;
+        margin-right: 0;
+      }
+
+      .lang-flag {
+        margin-left: 4px; /* drapeau rapproche du burger */
       }
 
       .nav-right {
@@ -1076,7 +1087,7 @@
     <button class="burger" onclick="burgerToggle()" aria-label="Menu" aria-expanded="false">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
     </button>
-    <a href="./index.html" class="nav-icon lang-flag" aria-label="English version" title="English version"><svg width="21" height="14" viewBox="0 0 60 30" aria-hidden="true" style="border-radius: 2px; display: block;"><defs><clipPath id="ukS"><path d="M0,0 v30 h60 v-30 z"></path></clipPath><clipPath id="ukT"><path d="M30,15 h30 v15 z v-30 h-30 z h-30 v15 z v-15 h30 z"></path></clipPath></defs><g clip-path="url(#ukS)"><path d="M0,0 v30 h60 v-30 z" fill="#012169"></path><path d="M0,0 60,30 M60,0 0,30" stroke="#fff" stroke-width="6"></path><path d="M0,0 60,30 M60,0 0,30" clip-path="url(#ukT)" stroke="#C8102E" stroke-width="4"></path><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"></path><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"></path></g></svg></a>
+    <a href="./index.html" class="nav-icon lang-flag" aria-label="English version" title="English version"><svg width="24" height="12" viewBox="0 0 60 30" aria-hidden="true" style="border-radius: 2px; display: block;"><defs><clipPath id="ukS"><path d="M0,0 v30 h60 v-30 z"></path></clipPath><clipPath id="ukT"><path d="M30,15 h30 v15 z v-30 h-30 z h-30 v15 z v-15 h30 z"></path></clipPath></defs><g clip-path="url(#ukS)"><path d="M0,0 v30 h60 v-30 z" fill="#012169"></path><path d="M0,0 60,30 M60,0 0,30" stroke="#fff" stroke-width="6"></path><path d="M0,0 60,30 M60,0 0,30" clip-path="url(#ukT)" stroke="#C8102E" stroke-width="4"></path><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"></path><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"></path></g></svg></a>
     </div>
     <ul class="nav-links nav-left">
       <li><a href="./scarcity-fr.html">ScarCity</a></li>
