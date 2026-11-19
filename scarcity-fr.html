@@ -839,6 +839,37 @@
       margin-bottom: 24px;
     }
 
+    .nl-band-form {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .nl-band-form input[type="email"] {
+      flex: 1;
+      min-width: 0;
+      padding: 11px 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.08);
+      color: #e2e8f0;
+      font-size: 0.95rem;
+      font-family: inherit;
+    }
+
+    .nl-band-form input[type="email"]:focus {
+      outline: none;
+      border-color: #4da9d3;
+    }
+
+    .nl-band-form button[type="submit"] {
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
     .btn-newsletter {
       display: inline-block;
       padding: 11px 28px;
@@ -1012,6 +1043,10 @@
 
       .newsletter-band {
         padding: 28px 25px;
+      }
+
+      .nl-band-form {
+        flex-direction: column;
       }
 
       .newsletter-band h2 {
@@ -1336,7 +1371,7 @@ Bienvenue dans l'Ère Mun !</p>
           <h3 style="font-weight: 400;">À paraître</h3>
           <span class="series-badge soon">En écriture</span>
           <p>Le tome 2 de la saga Génération Silix est en cours d'écriture.</p>
-          <a href="mailto:storytellise@proton.me?subject=Pr%C3%A9venez-moi%20du%20Tome%202" class="btn-action btn-news-action">Dites-moi quand c'est cuit !</a>
+          <a href="#" class="btn-action btn-news-action" onclick="cookedOpen(); return false;">Dites-moi quand c'est cuit !</a>
         </div>
       </div>
     </section>
@@ -1379,7 +1414,10 @@ Bienvenue dans l'Ère Mun !</p>
       <h2>Restez dans l'Ère Mun</h2>
       <p>Recevez les actualités de la saga, les coulisses d'écriture et les dates de sortie en avant-première</p>
       <!-- REMPLACEZ ce lien par un vrai formulaire d'inscription (Mailchimp, Substack, Buttondown...) -->
-      <a href="mailto:storytellise@proton.me?subject=Inscription%20newsletter" class="btn-newsletter">Donnez-moi des nouvelles !</a>
+      <form class="nl-band-form" onsubmit="return bandSubmit(event)">
+        <input type="email" id="nl-band-email" placeholder="votre@email.com" required />
+        <button type="submit" class="btn-newsletter">Donnez-moi des nouvelles !</button>
+      </form>
     </div>
 
 
@@ -1389,6 +1427,18 @@ Bienvenue dans l'Ère Mun !</p>
   <footer>
     <p>©2026 storytellise - Tous droits réservés | <a href="mailto:storytellise@proton.me" class="link-ghost">Contact</a> | <a href="https://www.instagram.com/storytellise/" target="_blank" rel="noopener" class="link-ghost">Instagram</a> | <a href="https://www.tiktok.com/@storytellise" target="_blank" rel="noopener" class="link-ghost">TikTok</a> | <a href="./mentions.html" class="link-ghost">Mentions légales</a></p>
   </footer>
+
+  <!-- Popin prévention Tome 2 -->
+  <div class="nl-popup" id="cooked-popup">
+    <button class="nl-close" onclick="cookedClose()" aria-label="Fermer">&#10005;</button>
+    <h3>Le Tome 2 est en route</h3>
+    <p>Laissez votre e-mail : on vous tient au jus quand c'est cuit ! Une fois, pas de spam.</p>
+    <form onsubmit="return cookedSubmit(event)">
+      <input type="email" id="cooked-email" placeholder="votre@email.com" required />
+      <button type="submit">Prévenez-moi !</button>
+    </form>
+    <p class="nl-note">Votre e-mail ne sert qu'à cette annonce. Jamais partagé.</p>
+  </div>
 
   <script>
     // Apparition au défilement
@@ -1435,7 +1485,74 @@ Bienvenue dans l'Ère Mun !</p>
     // NEWSLETTER - Point de branchement : collez ici l'URL de votre service
     // (Buttondown, Formspree, Mailchimp, Brevo...) et le formulaire l'utilisera.
     // Tant que vide : fallback mailto (fonctionne dès aujourd'hui).
-    var NL_ENDPOINT = "";
+    var NL_ENDPOINT = "https://formspree.io/f/xaeoblzj";
+
+    function bandDone() {
+      var form = document.querySelector('.nl-band-form');
+      if (form) form.innerHTML = "<p style=\"margin: 0; font-style: italic; color: #e2e8f0;\">Merci ! À très vite dans l'HemiNor.</p>";
+      try { localStorage.setItem('nl-state', 'subscribed'); } catch (err) {}
+    }
+
+    function newsletterFallback(email) {
+      var sujet = encodeURIComponent('Inscription newsletter');
+      var corps = encodeURIComponent('Bonjour,\nJe souhaite m\'inscrire a la newsletter storytellise.\nEmail : ' + email);
+      window.location.href = 'mailto:storytellise@proton.me?subject=' + sujet + '&body=' + corps;
+      bandDone();
+    }
+
+    function bandSubmit(e) {
+      e.preventDefault();
+      var email = document.getElementById('nl-band-email').value.trim();
+      if (!email) return false;
+      var form = e.target;
+      var done = bandDone;
+      if (NL_ENDPOINT) {
+        fetch(NL_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({ email: email, demande: 'NL' })
+        }).then(function(r) {
+          if (r.ok) done(); else newsletterFallback(email);
+        }).catch(function() { newsletterFallback(email); });
+      } else {
+        newsletterFallback(email);
+      }
+      return false;
+    }
+
+
+    function cookedDone() {
+      var p = document.getElementById('cooked-popup');
+      if (!p) return;
+      p.querySelector('form').style.display = 'none';
+      p.querySelector('h3').textContent = "C'est noté !";
+      p.querySelector('p').textContent = "On vous prévient dès l'annonce du Tome 2.";
+      try { localStorage.setItem('cooked-state', 'subscribed'); } catch (err) {}
+    }
+    function cookedOpen() {
+      var p = document.getElementById('cooked-popup');
+      if (!p) return;
+      try { if (localStorage.getItem('cooked-state') === 'subscribed') cookedDone(); } catch (err) {}
+      p.style.display = 'block';
+      requestAnimationFrame(function() { requestAnimationFrame(function() { p.classList.add('open'); }); });
+    }
+    function cookedClose() {
+      var p = document.getElementById('cooked-popup');
+      if (!p) return;
+      p.classList.remove('open');
+      setTimeout(function() { p.style.display = 'none'; }, 500);
+    }
+    function cookedSubmit(e) {
+      e.preventDefault();
+      var email = document.getElementById('cooked-email').value.trim();
+      if (!email) return false;
+      fetch(NL_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ email: email, demande: 'tome2' })
+      }).then(function(r) { if (r.ok) cookedDone(); }).catch(function() {});
+      return false;
+    }
 
     function nlOpen() {
       var p = document.getElementById('nl-popup');
@@ -1465,7 +1582,7 @@ Bienvenue dans l'Ère Mun !</p>
         fetch(NL_ENDPOINT, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify({ email: email })
+          body: JSON.stringify({ email: email, demande: 'NL' })
         }).then(done).catch(done);
       } else {
         var sujet = encodeURIComponent('Inscription newsletter');

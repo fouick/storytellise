@@ -839,6 +839,37 @@
       margin-bottom: 24px;
     }
 
+    .nl-band-form {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .nl-band-form input[type="email"] {
+      flex: 1;
+      min-width: 0;
+      padding: 11px 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.08);
+      color: #e2e8f0;
+      font-size: 0.95rem;
+      font-family: inherit;
+    }
+
+    .nl-band-form input[type="email"]:focus {
+      outline: none;
+      border-color: #4da9d3;
+    }
+
+    .nl-band-form button[type="submit"] {
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
     .btn-newsletter {
       display: inline-block;
       padding: 11px 28px;
@@ -1012,6 +1043,10 @@
 
       .newsletter-band {
         padding: 28px 25px;
+      }
+
+      .nl-band-form {
+        flex-direction: column;
       }
 
       .newsletter-band h2 {
@@ -1343,7 +1378,7 @@ Welcome to the Mun Era!</p>
           <h3 style="font-weight: 400;">Coming soon</h3>
           <span class="series-badge soon">In writing</span>
           <p>Volume 2 of the Generation Silix saga is being written.</p>
-          <a href="mailto:storytellise@proton.me?subject=Notify%20me%20about%20Volume%202" class="btn-action btn-news-action">Let me know when it's cooked!</a>
+          <a href="#" class="btn-action btn-news-action" onclick="cookedOpen(); return false;">Let me know when it's cooked!</a>
         </div>
       </div>
     </section>
@@ -1386,7 +1421,10 @@ Welcome to the Mun Era!</p>
       <h2>Stay in the Mun Era</h2>
       <p>Get saga news, writing insights and release dates first</p>
       <!-- REPLACE this link with a real signup form (Mailchimp, Substack, Buttondown...) -->
-      <a href="mailto:storytellise@proton.me?subject=Newsletter%20signup" class="btn-newsletter">What's new?</a>
+      <form class="nl-band-form" onsubmit="return bandSubmit(event)">
+        <input type="email" id="nl-band-email" placeholder="your@email.com" required />
+        <button type="submit" class="btn-newsletter">What's new?</button>
+      </form>
     </div>
 
 
@@ -1396,6 +1434,18 @@ Welcome to the Mun Era!</p>
   <footer>
     <p>©2026 storytellise - all rights reserved | <a href="mailto:storytellise@proton.me" class="link-ghost">Contact</a> | <a href="https://www.instagram.com/storytellise/" target="_blank" rel="noopener" class="link-ghost">Instagram</a> | <a href="https://www.tiktok.com/@storytellise" target="_blank" rel="noopener" class="link-ghost">TikTok</a> | <a href="./mentions.html" class="link-ghost">Legal notice</a></p>
   </footer>
+
+  <!-- Volume 2 notify popin -->
+  <div class="nl-popup" id="cooked-popup">
+    <button class="nl-close" onclick="cookedClose()" aria-label="Close">&#10005;</button>
+    <h3>Volume 2 is on its way</h3>
+    <p>Drop your email: you'll be notified the moment the <strong>Volume 2</strong> release date is announced. Once, no spam.</p>
+    <form onsubmit="return cookedSubmit(event)">
+      <input type="email" id="cooked-email" placeholder="your@email.com" required />
+      <button type="submit">Notify me!</button>
+    </form>
+    <p class="nl-note">Your email is only used for this announcement. Never shared.</p>
+  </div>
 
   <script>
     // Scroll reveal
@@ -1442,7 +1492,74 @@ Welcome to the Mun Era!</p>
     // NEWSLETTER - Point de branchement : collez ici l'URL de votre service
     // (Buttondown, Formspree, Mailchimp, Brevo...) et le formulaire l'utilisera.
     // Tant que vide : fallback mailto (fonctionne dès aujourd'hui).
-    var NL_ENDPOINT = "";
+    var NL_ENDPOINT = "https://formspree.io/f/xaeoblzj";
+
+    function bandDone() {
+      var form = document.querySelector('.nl-band-form');
+      if (form) form.innerHTML = '<p style="margin: 0; font-style: italic; color: #e2e8f0;">Thank you! See you soon in HemiNor.</p>';
+      try { localStorage.setItem('nl-state', 'subscribed'); } catch (err) {}
+    }
+
+    function newsletterFallback(email) {
+      var sujet = encodeURIComponent('Inscription newsletter');
+      var corps = encodeURIComponent('Bonjour,\nJe souhaite m\'inscrire a la newsletter storytellise.\nEmail : ' + email);
+      window.location.href = 'mailto:storytellise@proton.me?subject=' + sujet + '&body=' + corps;
+      bandDone();
+    }
+
+    function bandSubmit(e) {
+      e.preventDefault();
+      var email = document.getElementById('nl-band-email').value.trim();
+      if (!email) return false;
+      var form = e.target;
+      var done = bandDone;
+      if (NL_ENDPOINT) {
+        fetch(NL_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({ email: email, demande: 'NL-EN' })
+        }).then(function(r) {
+          if (r.ok) done(); else newsletterFallback(email);
+        }).catch(function() { newsletterFallback(email); });
+      } else {
+        newsletterFallback(email);
+      }
+      return false;
+    }
+
+
+    function cookedDone() {
+      var p = document.getElementById('cooked-popup');
+      if (!p) return;
+      p.querySelector('form').style.display = 'none';
+      p.querySelector('h3').textContent = "Noted!";
+      p.querySelector('p').textContent = "We'll ping you the moment Volume 2 is announced.";
+      try { localStorage.setItem('cooked-state', 'subscribed'); } catch (err) {}
+    }
+    function cookedOpen() {
+      var p = document.getElementById('cooked-popup');
+      if (!p) return;
+      try { if (localStorage.getItem('cooked-state') === 'subscribed') cookedDone(); } catch (err) {}
+      p.style.display = 'block';
+      requestAnimationFrame(function() { requestAnimationFrame(function() { p.classList.add('open'); }); });
+    }
+    function cookedClose() {
+      var p = document.getElementById('cooked-popup');
+      if (!p) return;
+      p.classList.remove('open');
+      setTimeout(function() { p.style.display = 'none'; }, 500);
+    }
+    function cookedSubmit(e) {
+      e.preventDefault();
+      var email = document.getElementById('cooked-email').value.trim();
+      if (!email) return false;
+      fetch(NL_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ email: email, demande: 'tome2-EN' })
+      }).then(function(r) { if (r.ok) cookedDone(); }).catch(function() {});
+      return false;
+    }
 
     function nlOpen() {
       var p = document.getElementById('nl-popup');
@@ -1472,7 +1589,7 @@ Welcome to the Mun Era!</p>
         fetch(NL_ENDPOINT, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify({ email: email })
+          body: JSON.stringify({ email: email, demande: 'NL-EN' })
         }).then(done).catch(done);
       } else {
         var sujet = encodeURIComponent('Inscription newsletter');
