@@ -119,7 +119,7 @@
       height: 45vh;
       min-height: 300px;
       overflow: hidden;
-      background: url('cascade-flow-20-banner.jpg') center 32% / cover no-repeat #0b0c10; /* image de secours : visible même sans video (mobile, data-saver, reduced-motion) */
+      background: url('cascade-flow-20-banner.jpg') center top / cover no-repeat #0b0c10; /* image de secours : visible même sans video (mobile, data-saver, reduced-motion) */
     }
 
     .video-banner video {
@@ -129,7 +129,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 32%;
+      object-position: center top; /* partie superieure de l'image non rognee */
     }
 
     .video-banner video {
@@ -140,7 +140,7 @@
       height: 64vh; /* = bannière complète de la landing : image identique, coupée en bas */
       min-height: 430px;
       object-fit: cover;
-      object-position: center 32%;
+      object-position: center top; /* partie superieure de l'image non rognee */
     }
 
     .banner-overlay {
